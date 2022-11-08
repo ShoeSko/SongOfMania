@@ -524,8 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c6e16432be64244b5af482db0dce19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useStaticBillboard: 0
-  billboardRestrictionOption: 0
+  useBillboard: 1
+  useStaticBillboard: 1
+  billboardRestrictionOption: 2
   cam: {fileID: 1706372699}
   targetDestination: {fileID: 1830139014}
   billboardChild: {fileID: 452501411}

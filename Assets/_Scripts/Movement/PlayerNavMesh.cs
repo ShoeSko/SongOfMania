@@ -7,6 +7,9 @@ using UnityEngine.AI;
 public class PlayerNavMesh : MonoBehaviour
 {
     [Header("Billboard Customization")]
+    [Tooltip("")]
+    [SerializeField] private bool useBillboard;
+    [Tooltip("")]
     [SerializeField] private bool useStaticBillboard;
     [Tooltip("0=No Restriction, 1=X only, 2=Y only, 3=Z only, 4=X&Y, 5=X&Z, 6= Y&Z, 7=XYZ")]
     [SerializeField][Range(0,6)] private int billboardRestrictionOption;
@@ -61,7 +64,10 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void LateUpdate()
     {
-        Billboarding();
+        if (useBillboard)
+        {
+            Billboarding();
+        }
     }
 
     private void Billboarding()
