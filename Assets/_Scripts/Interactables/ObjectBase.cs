@@ -19,6 +19,11 @@ public class ObjectBase : MonoBehaviour
     private int interactableSheet;
     private int interactableRow;
 
+    [Header("NPC Parameter")]
+    public bool isNPC;
+
+
+    [Header("Hidden Variables")]
     private Material originalMaterial;
 
 
@@ -27,8 +32,9 @@ public class ObjectBase : MonoBehaviour
         //Initiate call to CVS info?
         //Fill current with needed information.
 
-        if(isItem || isInteractable)
+        if(!isNPC)
         {
+            //Store current material for end of highligh
             originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
         }
     }
@@ -41,7 +47,7 @@ public class ObjectBase : MonoBehaviour
     /// <summary>
     /// When you Right Click this object it will ...
     /// </summary>
-    public virtual void OnRightClick()
+    public virtual void OnActivate()
     {
         //Right Click Function
 
@@ -55,7 +61,7 @@ public class ObjectBase : MonoBehaviour
     /// <summary>
     /// When you Left Click this object it will prompt an observation dialog.
     /// </summary>
-    public virtual void OnLeftClick()
+    public virtual void OnInspect()
     {
         //Left Click Function
 
@@ -65,19 +71,23 @@ public class ObjectBase : MonoBehaviour
 
     /// <summary>
     /// Highlight this object when pressing scroll wheel / Space button
+    /// Unless NPC
     /// </summary>
     private void HighlightInteractable()
     {
         //Trigger Highlight
-        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) && !isNPC)
         {
+            //Get reference to Highlight material that is in asset folder called Resources
             Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
 
+            //Get Refernece to Object Meshrender & set material to highlightMaterial
             MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
             interactMesh.material = highlightMaterial;
         }
-        else
+        else if (!isNPC)
         {
+            //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
             MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
             interactMesh.material = originalMaterial;
         }
