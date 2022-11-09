@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 119771754}
   - component: {fileID: 119771753}
   - component: {fileID: 119771752}
+  - component: {fileID: 119771755}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -150,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119771750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.004703, y: -1.53, z: -0.14}
+  m_LocalPosition: {x: 2.004703, y: -1.37, z: -0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -220,6 +221,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119771750}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &119771755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119771750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fe04cbec6c6fc4bb62bd76306675e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isItem: 1
+  itemName: Jimbo
+  isInteractable: 0
+  interactableName: 
 --- !u!1 &127156850
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +613,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: caa72d5aff9b84502ad37484407ceca2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -711,7 +728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9bf520b8d7962492ab625159d7ccec2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1684,10 +1701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1147636657}
     m_Modifications:
-    - target: {fileID: 2754661758439914139, guid: 0d0af25dc2899d942bfee3d54d88111b, type: 3}
-      propertyPath: uiCamera
-      value: 
-      objectReference: {fileID: 1706372699}
     - target: {fileID: 2754661758439914140, guid: 0d0af25dc2899d942bfee3d54d88111b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

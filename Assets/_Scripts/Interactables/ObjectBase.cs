@@ -8,23 +8,35 @@ public class ObjectBase : MonoBehaviour
     [Header("Item Parameters")]
     [Tooltip("Is this object an Item?")] 
     public bool isItem;
+    public string itemName;
     private int itemSheet;
     private int itemRow;
-    public string itemName;
 
     [Header("Interactable Parameter")]
     [Tooltip("Is this object an interactable?")]
     public bool isInteractable;
+    public string interactableName;
     private int interactableSheet;
     private int interactableRow;
-    public string interactableName;
+
+    private Material originalMaterial;
+
 
     private void Start()
     {
         //Initiate call to CVS info?
         //Fill current with needed information.
+
+        if(isItem || isInteractable)
+        {
+            originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
+        }
     }
 
+    private void Update()
+    {
+        HighlightInteractable();
+    }
 
     /// <summary>
     /// When you Right Click this object it will ...
@@ -52,15 +64,24 @@ public class ObjectBase : MonoBehaviour
 
 
     /// <summary>
-    /// Highlight this object (How Hmmm) when pressing scroll wheel / Space button
+    /// Highlight this object when pressing scroll wheel / Space button
     /// </summary>
     private void HighlightInteractable()
     {
-        //Highlight with Scroll wheel/Space button.
-        //Should not need to be edited. 
-        //Add On off if applicable...
-    }
+        //Trigger Highlight
+        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space))
+        {
+            Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
 
+            MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
+            interactMesh.material = highlightMaterial;
+        }
+        else
+        {
+            MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
+            interactMesh.material = originalMaterial;
+        }
+    }
 
     /// <summary>
     /// Displays the name of the current object when hovered over.
@@ -71,12 +92,22 @@ public class ObjectBase : MonoBehaviour
         //Have reference to text object
         //Display Name from Sheet/Given in text
         //Hide when no longer
+        if (isItem)
+        {
 
-        NameDisplay.ShowDisplayName_Static(interactableName);
+            NameDisplay.ShowDisplayName_Static(itemName);
+        }
+        else if (isInteractable)
+        {
+            NameDisplay.ShowDisplayName_Static(interactableName);
+        }
+        else
+        {
+            //Inser NPC Name Condition here
+        }
     }
 
 
-    
 
     /// <summary>
     /// Triggers Right/Left Click Highlight & Display Name
@@ -84,18 +115,9 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     private void OnMouseOver()
     {
-        //Text Object Name of interactable
-
-        //When I am moused over send info to Tooltip script?
-
-
-        //Trigger OnLeftClick & On RightClick?
 
         //Trigger Display Name
-        if(isItem || isInteractable)
-        {
             DisplayName();
-        }
     }
 
     /// <summary>
