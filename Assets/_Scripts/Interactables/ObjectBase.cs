@@ -68,6 +68,17 @@ public class ObjectBase : MonoBehaviour
         //Input.mousebutton(1) down. Then....
     }
 
+    /// <summary>
+    /// When you 
+    /// 1 Have item in inventory selected and click
+    /// 2 Drag item in inventory over and release
+    /// Do This.
+    /// </summary>
+    public virtual void OnRecieve()
+    {
+
+    }
+
 
     /// <summary>
     /// Highlight this object when pressing scroll wheel / Space button
@@ -125,9 +136,14 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     private void OnMouseOver()
     {
-
+        //Trigger OnActivate
+        OnActivate();
+        //Trigger OnInspect
+        OnInspect();
+        //Trigger OnRecieve
+        OnRecieve();
         //Trigger Display Name
-            DisplayName();
+        DisplayName();
     }
 
     /// <summary>
