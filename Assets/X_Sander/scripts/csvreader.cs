@@ -10,6 +10,7 @@ public class csvreader : MonoBehaviour
     public int listRow;
     public TMP_Text text;
 
+
     [System.Serializable]
     public class Item
     {
@@ -27,6 +28,7 @@ public class csvreader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         ReadCSV();
     }
 

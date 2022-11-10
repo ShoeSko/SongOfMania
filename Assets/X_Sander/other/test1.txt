@@ -1,0 +1,8 @@
+Name	Promt	who	position	Partner	next
+FirstSteps1	By the gods, I am tired of this winter depression, I need to feel the sun on my skin and grass between my toes	Eurydice	Left	no	3
+FirstSteps2	Time to get my head back in the game. First, let's get the legs moving	Eurydice	Right	Orpheus	4
+FirstSteps3	All I need to do is; point the course anywhere on the floor and left click, simple, you can do this girl	Orpheus	Left	no	-1
+Thedoor1	wonderful, my legs still work as expected	Eurydice	Left	Orpheus	6
+Thedoor2	Now the door, I should be able to [inspect] it by simply moving the cursor over it and pressing [right click]	Orpheus	Right	no	-1
+UseDoor1	A little out of focus, but yes, I can confirm that is a door	Eurydice	Left	no	8
+UseDoor2	Now the hardest part; I should be able to [use] the door, by [left clicking]	Eurydice	Left	no	-1
