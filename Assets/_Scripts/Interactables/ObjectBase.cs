@@ -25,28 +25,53 @@ public class ObjectBase : MonoBehaviour
     private int npcSheet;
     private int npcRow;
 
+    public Dialogue dialogueInstance { get; private set; }
+
     [Header("Hidden Variables")]
     private Material originalMaterial;
     [Tooltip("Whenever an object is clicked, tell the player")]
-    public static bool s_clickedObject;
-    public static Transform s_interactLocation;
+
+    [Header("OnRightClick Parameters")]
+    [SerializeField] private float interactionRange;
+    public Transform interactLocation { get; protected set; }
+    public static ObjectBase s_objectInstance;
+    //Activate the given function
+    private bool activate = false;
+    //In theory this one will be needed for Recieve as well. Make seperate function perhaps?
+    [HideInInspector] public bool clickedObject;
+
 
     private void Start()
     {
-        //Initiate call to CVS info?
-        //Fill current with needed information.
-        //Call function to fill CVS Smarter
+        //To prevent that there is no instance of ObjectClass set. (May cause future issues
+        s_objectInstance = this;
+
 
         if(!isNPC)
         {
             //Store current material for end of highligh
             originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
         }
+
+        if (transform.childCount > 0)
+        {
+            interactLocation = transform.GetChild(0).transform;
+        }
+        else
+        {
+            interactLocation = this.transform;
+        }
+
+        //Find the dialogue script int scene (Should only be 1 per lvl)
+        dialogueInstance = FindObjectOfType<Dialogue>();
     }
 
     private void Update()
     {
         HighlightInteractable();
+
+        PlayerNearActivate();
+        //Trigger for on activate stuff?
     }
 
     /// <summary>
@@ -54,27 +79,8 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     {
-        //Right Click Function
-        if (Input.GetMouseButton(0))
-        {
-            s_clickedObject = true;
-
-            if (transform.childCount > 0)
-            {
-                s_interactLocation = transform.GetChild(0).transform;
-            }
-            else
-            {
-                s_interactLocation = this.transform;
-            }
-            //Redirect position
-        }
-
-        //Input.mousebutton(0) down.
-        //IF(Close enough)
-        //Else move Player
-
-        //Prevent movement due to click?
+        Debug.Log("Activated ");
+        //Something Dialogue activation
     }
 
     /// <summary>
@@ -82,9 +88,7 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnInspect()
     {
-        //Left Click Function
-
-        //Input.mousebutton(1) down. Then....
+        //Something Dialogue Activation
     }
 
     /// <summary>
@@ -95,9 +99,60 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnRecieve()
     {
-
+        //Condition of Inout + Item 
+        //ApproachOnClick
+        //Something Dialogue Activation
     }
 
+    private void ApproachOnClick()
+    {
+        clickedObject = true;
+        if (s_objectInstance != this)
+        {
+            s_objectInstance = this;
+        }
+    }
+
+    public virtual void PlayerNearActivate()
+    {
+        //If not ClickedObject anymore, that means we do not want to activate it.
+        if (clickedObject)
+        {
+            activate = true;
+        }
+
+        if (activate)
+        {
+            Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
+            for (int i = 0; i < locatePlayer.Length; i++)
+            {
+                if (locatePlayer[i].GetComponent<PlayerNavMesh>())
+                {
+                    //Now you can activate either OnActive or OnRecieve
+                    //IF (Static bool for holding item?)
+                    //Else
+                    //No longer activate after use.
+                    activate = false;
+                    OnActivate();
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected() //Gizmo to represent attack range.
+    {
+        if (transform.childCount > 0)
+        {
+            interactLocation = transform.GetChild(0).transform;
+        }
+        else
+        {
+            interactLocation = this.transform;
+        }
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(interactLocation.position,interactionRange);
+    }
 
     /// <summary>
     /// Highlight this object when pressing scroll wheel / Space button
@@ -157,12 +212,19 @@ public class ObjectBase : MonoBehaviour
     {
         if (!Dialogue.isDialogue)
         {
-            //Trigger OnActivate
-            OnActivate();
             //Trigger OnInspect
-            OnInspect();
-            //Trigger OnRecieve
-            OnRecieve();
+            if (Input.GetMouseButton(1))
+            {
+                OnInspect();
+            }
+
+            //Setup for both On Active & OnRecieve
+            if (Input.GetMouseButton(0))
+            {
+                ApproachOnClick();
+            }
+
+
             //Trigger Display Name
             DisplayName();
         }

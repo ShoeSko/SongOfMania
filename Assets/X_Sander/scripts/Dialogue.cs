@@ -45,13 +45,13 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetMouseButtonDown(0) && isDialogue)
         {
             getDialogue(nextLine);
         }
     }
 
-    void getDialogue(int readLine)
+    public void getDialogue(int readLine)
     {
         
         otherTexture = null;
@@ -182,8 +182,13 @@ public class Dialogue : MonoBehaviour
     }
     void dialogueFinished()
     {
-        isDialogue = false;
+        StartCoroutine(DelayAfterDialogue());
         dialogueParent.gameObject.SetActive(false);
     }
-
+    IEnumerator DelayAfterDialogue()
+    {
+        //Delay to prevent movement when finishing dialogue
+        yield return new WaitForSeconds(.5f);
+        isDialogue = false;
+    }
 }
