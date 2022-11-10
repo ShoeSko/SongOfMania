@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: cac4db0a6ff5d29409264f691de100ef, type: 2}
+--- !u!224 &64359373 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+  m_PrefabInstance: {fileID: 685387917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &119771750
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +145,7 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &119771751
@@ -233,10 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fe04cbec6c6fc4bb62bd76306675e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isItem: 1
-  itemName: Jimbo
+  isItem: 0
+  itemName: 
   isInteractable: 0
   interactableName: 
+  npcName: Call me NPC
 --- !u!1 &127156850
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +427,9 @@ GameObject:
   m_Component:
   - component: {fileID: 452501412}
   - component: {fileID: 452501413}
+  - component: {fileID: 452501415}
+  - component: {fileID: 452501417}
+  - component: {fileID: 452501416}
   m_Layer: 0
   m_Name: BillboardEu
   m_TagString: Untagged
@@ -495,6 +504,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &452501415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452501411}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.09, y: 6.56, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &452501416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452501411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8e372687c397741bf32be6a7999557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isItem: 0
+  itemName: John
+  isInteractable: 0
+  interactableName: John
+  npcName: Steve Him
+--- !u!114 &452501417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452501411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ca70d3d7178bc4b812d509b1e50bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useBillboard: 1
+  useStaticBillboard: 0
+  billboardRestrictionOption: 2
+  cam: {fileID: 0}
 --- !u!1 &463448290
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +633,8 @@ MonoBehaviour:
   isItem: 0
   itemName: 
   isInteractable: 1
-  interactableName: ... Sandwiches
+  interactableName: I am Interactable
+  npcName: 
 --- !u!136 &619387969
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -643,6 +699,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619387966}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &685387917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1147636657}
+    m_Modifications:
+    - target: {fileID: 5382982820738327318, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_Name
+      value: DIaloguetest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327321, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382982820738327323, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: myDialogueList.dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
 --- !u!1 &834562445
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,10 +847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fe04cbec6c6fc4bb62bd76306675e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isItem: 0
-  itemName: 
-  isInteractable: 1
-  interactableName: Hi My name is
+  isItem: 1
+  itemName: I am Item
+  isInteractable: 0
+  interactableName: 
+  npcName: 
 --- !u!136 &834562448
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -770,6 +928,7 @@ GameObject:
   - component: {fileID: 912569415}
   - component: {fileID: 912569414}
   - component: {fileID: 912569416}
+  - component: {fileID: 912569417}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -804,9 +963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c6e16432be64244b5af482db0dce19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useBillboard: 1
-  useStaticBillboard: 1
-  billboardRestrictionOption: 2
   cam: {fileID: 1706372699}
   targetDestination: {fileID: 1830139014}
   billboardChild: {fileID: 452501411}
@@ -884,6 +1040,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &912569417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912569408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ca70d3d7178bc4b812d509b1e50bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useBillboard: 1
+  useStaticBillboard: 0
+  billboardRestrictionOption: 2
+  cam: {fileID: 0}
 --- !u!1 &945005766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1313,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1459020619}
+  - {fileID: 64359373}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
