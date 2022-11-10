@@ -17,4 +17,10 @@ public class NPCBase : ObjectBase
         base.OnActivate();
         dialogueInstance.getDialogue(dialogueIndexToCall);
     }
+
+    public override void OnInspect()
+    {
+        base.OnInspect();
+        SpokenDisplay.ShowDisplaySpoken_Static("This MOTHERF****R");
+    }
 }
