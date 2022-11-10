@@ -1,0 +1,7 @@
+Name	Inspect	failed use	combined item	combine result	pick up promt
+Stool	The chair! I just need to pick it up by [Using] it by pressing [Left click]	i dont think thats right	-1	-1	The chair! I just need to pick it up by [Using] it by pressing [Left click]
+Key	Now i need to [use] the key on the door	i dont think thats right	-1	-1	Got it! Now i need to [use] the key on the door
+Broken lyre	This place is a mess! guess i'll jist have to look for the string	i dont think thats right	5	6	no
+Rake	here I go, cleaning your mess again darling	i dont think thats right	-1	-1	here I go, cleaning your mess again darling
+Lyre string	Now to combine the cord and the lyre. If i [Use] one of the items on the other i should combine it	i dont think thats right	3	6	Now to combine the cord and the lyre. If i [Use] one of the items on the other i should combine it
+Lyre 	Fixed! now i should give it to Orpheus	i dont think thats right	-1	-1	Fixed! now i should give it to Orpheus
