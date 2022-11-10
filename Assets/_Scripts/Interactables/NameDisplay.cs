@@ -36,18 +36,22 @@ public class NameDisplay : MonoBehaviour
     /// </summary>
     public static void ShowDisplayName_Static(string name)
     {
-        //To give better reference
-        TextMeshProUGUI nameText = s_nameDisplay.textName;
-        RectTransform backgroundText = s_nameDisplay.textBackground;
+        //IF there is no Dialogue displaying
+        if (!Dialogue.isDialogue)
+        {
+            //To give better reference
+            TextMeshProUGUI nameText = s_nameDisplay.textName;
+            RectTransform backgroundText = s_nameDisplay.textBackground;
 
-        nameText.gameObject.SetActive(true);
-        backgroundText.gameObject.SetActive(true);
+            nameText.gameObject.SetActive(true);
+            backgroundText.gameObject.SetActive(true);
 
-        s_nameDisplay.textName.text = name;
+            s_nameDisplay.textName.text = name;
 
-        float textPaddingSize = 4f;
-        Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize *2f, nameText.preferredHeight + textPaddingSize *2f);
-        backgroundText.sizeDelta = backgroundSize;
+            float textPaddingSize = 4f;
+            Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize *2f, nameText.preferredHeight + textPaddingSize *2f);
+            backgroundText.sizeDelta = backgroundSize;
+        }
     }
 
 

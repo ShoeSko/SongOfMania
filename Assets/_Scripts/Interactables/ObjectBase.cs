@@ -20,8 +20,10 @@ public class ObjectBase : MonoBehaviour
     private int interactableRow;
 
     [Header("NPC Parameter")]
-    public bool isNPC;
-
+    public string npcName;
+    public bool isNPC { get; protected set; }
+    private int npcSheet;
+    private int npcRow;
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
@@ -31,6 +33,7 @@ public class ObjectBase : MonoBehaviour
     {
         //Initiate call to CVS info?
         //Fill current with needed information.
+        //Call function to fill CVS Smarter
 
         if(!isNPC)
         {
@@ -87,7 +90,7 @@ public class ObjectBase : MonoBehaviour
     private void HighlightInteractable()
     {
         //Trigger Highlight
-        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) && !isNPC)
+        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
         {
             //Get reference to Highlight material that is in asset folder called Resources
             Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
@@ -124,7 +127,7 @@ public class ObjectBase : MonoBehaviour
         }
         else
         {
-            //Inser NPC Name Condition here
+            NameDisplay.ShowDisplayName_Static(npcName);
         }
     }
 
@@ -136,14 +139,17 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     private void OnMouseOver()
     {
-        //Trigger OnActivate
-        OnActivate();
-        //Trigger OnInspect
-        OnInspect();
-        //Trigger OnRecieve
-        OnRecieve();
-        //Trigger Display Name
-        DisplayName();
+        if (!Dialogue.isDialogue)
+        {
+            //Trigger OnActivate
+            OnActivate();
+            //Trigger OnInspect
+            OnInspect();
+            //Trigger OnRecieve
+            OnRecieve();
+            //Trigger Display Name
+            DisplayName();
+        }
     }
 
     /// <summary>
