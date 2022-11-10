@@ -1712,7 +1712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5382982820738327321}
   - component: {fileID: 5382982820738327320}
-  - component: {fileID: 5382982820738327323}
+  - component: {fileID: 4498782660082305853}
   m_Layer: 5
   m_Name: DIaloguetest
   m_TagString: Untagged
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   whereLeft: 0
   otherTexture: {fileID: 0}
   otherName: 
---- !u!114 &5382982820738327323
+--- !u!114 &4498782660082305853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382982820738327318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ba8c34f62e0804ba8a29f78de7a538, type: 3}
+  m_Script: {fileID: 11500000, guid: 3df1f01b413aef949974bfae73931337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textAssetData: {fileID: 4900000, guid: 198cc9a0bd4ab6c4695d4b1ccdc31484, type: 3}
