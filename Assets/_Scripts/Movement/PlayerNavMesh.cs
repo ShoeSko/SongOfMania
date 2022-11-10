@@ -30,7 +30,25 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void PlayerClick()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 10000))
+            {
+                Debug.Log(hit.transform.gameObject.name);
+            }
+        }
+
+        if (Input.GetMouseButton(0) && ObjectBase.s_clickedObject)
+        {
+            //Allow movement elsewhere, but has set movement to wanted locaiton
+            ObjectBase.s_clickedObject = false;
+            targetDestination.transform.position = ObjectBase.s_interactLocation.position;
+            playerNavAgent.SetDestination(ObjectBase.s_interactLocation.position);
+        }
+        else if (Input.GetMouseButton(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPoint;

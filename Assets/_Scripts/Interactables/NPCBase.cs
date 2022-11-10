@@ -9,4 +9,6 @@ public class NPCBase : ObjectBase
         //Confirm I am NPC
         isNPC = true;
     }
+
+
 }

@@ -27,7 +27,9 @@ public class ObjectBase : MonoBehaviour
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
-
+    [Tooltip("Whenever an object is clicked, tell the player")]
+    public static bool s_clickedObject;
+    public static Transform s_interactLocation;
 
     private void Start()
     {
@@ -53,6 +55,20 @@ public class ObjectBase : MonoBehaviour
     public virtual void OnActivate()
     {
         //Right Click Function
+        if (Input.GetMouseButton(0))
+        {
+            s_clickedObject = true;
+
+            if (transform.childCount > 0)
+            {
+                s_interactLocation = transform.GetChild(0).transform;
+            }
+            else
+            {
+                s_interactLocation = this.transform;
+            }
+            //Redirect position
+        }
 
         //Input.mousebutton(0) down.
         //IF(Close enough)
