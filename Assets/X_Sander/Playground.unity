@@ -2868,6 +2868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1086282481}
     m_Modifications:
+    - target: {fileID: 5382982820123999297, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
+      propertyPath: m_UVRect.width
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5382982820738327318, guid: 0fa95df04ac60a34bbfe75ddcb1d79c2, type: 3}
       propertyPath: m_Name
       value: DIaloguetest
