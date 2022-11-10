@@ -18,8 +18,8 @@ public class SpokenDisplay : MonoBehaviour
     private void Awake()
     {
         //Turn off both gameobjects.
-        textName.gameObject.SetActive(false);
-        textBackground.gameObject.SetActive(false);
+        //textName.gameObject.SetActive(false);
+        //textBackground.gameObject.SetActive(false);
         //Gives refrence to script easily accesible.
         s_spokenDisplay = this;
 
@@ -29,18 +29,19 @@ public class SpokenDisplay : MonoBehaviour
     private void Update()
     {
         Vector2 localPoint;
+        Vector3 inWorldPoint;
         //Have display hover over cursor
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), playerLocation.position, uiCamera, out localPoint);
+        RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.parent.GetComponent<RectTransform>(), playerLocation.position, uiCamera, out inWorldPoint);
         //Pad cursor location to not cover cursor
-        localPoint = new Vector2(localPoint.x + displayPaddingX, localPoint.y + displayPaddingY);
-        transform.localPosition = localPoint;
+        //localPoint = new Vector2(localPoint.x + displayPaddingX, localPoint.y + displayPaddingY);
+        transform.localPosition = inWorldPoint;
     }
 
     /// <summary>
     /// Can be easily called in any script
     /// Will Show Name Display
     /// </summary>
-    public static void ShowDisplaySpoken_Static(string name)
+    public static void ShowDisplaySpoken_Static(string spokenText)
     {
         //IF there is no Dialogue displaying
         if (!Dialogue.isDialogue)
@@ -52,7 +53,7 @@ public class SpokenDisplay : MonoBehaviour
             nameText.gameObject.SetActive(true);
             backgroundText.gameObject.SetActive(true);
 
-            s_spokenDisplay.textName.text = name;
+            s_spokenDisplay.textName.text = spokenText;
 
             float textPaddingSize = 4f;
             Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize * 2f, nameText.preferredHeight + textPaddingSize * 2f);
