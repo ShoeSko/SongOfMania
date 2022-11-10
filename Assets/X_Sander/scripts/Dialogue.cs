@@ -59,8 +59,8 @@ public class Dialogue : MonoBehaviour
         {
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
-            displayText.text = TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].promt;
-            switch (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].who)
+            displayText.text = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].promt;
+            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].who)
             {
                 case "Orpheus":
                     whoName = "Orpheus";
@@ -80,7 +80,7 @@ public class Dialogue : MonoBehaviour
                 default:
                     break;
             }
-            switch (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].Position)
+            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].Position)
             {
                 case "L":
                     whereLeft = true;
@@ -91,7 +91,7 @@ public class Dialogue : MonoBehaviour
                 default:
                     break;
             }
-            switch (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].partner)
+            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].partner)
             {
                 case "Orpheus":
                     otherTexture = characterOrpheus;
@@ -109,7 +109,7 @@ public class Dialogue : MonoBehaviour
                     otherTexture = null;
                     break;
             }
-            if (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].next == 0)
+            if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
             {
                 nextLine = -1;
             }

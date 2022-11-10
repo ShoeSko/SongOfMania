@@ -11,9 +11,10 @@ public class interactableCSVreader : MonoBehaviour
     public class Interactable
     {
         public string name;
+        public int recivedItem;
+        public int givenItem;
         public string inspectPromt;
-        public string usePromt;
-        public int multiClick;
+
     }
     [System.Serializable]
     public class InteractableList
@@ -39,8 +40,10 @@ public class interactableCSVreader : MonoBehaviour
         {
             myInteractableList.interactable[i] = new Interactable();
             myInteractableList.interactable[i].name = data[4 * (i + 1)];
-            myInteractableList.interactable[i].inspectPromt = data[4 * (i + 1)+1];
-            myInteractableList.interactable[i].usePromt = data[4 * (i + 1) + 2];
+            myInteractableList.interactable[i].recivedItem = int.Parse(data[4 * (i + 1) + 1]);
+            myInteractableList.interactable[i].givenItem = int.Parse(data[4 * (i + 1) + 2]);
+            myInteractableList.interactable[i].inspectPromt = data[4 * (i + 1)+3];
+
         
         }
     }
