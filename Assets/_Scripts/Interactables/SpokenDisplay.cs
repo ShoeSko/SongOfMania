@@ -13,28 +13,30 @@ public class SpokenDisplay : MonoBehaviour
     private Transform playerLocation;
     public float textVisiblityTime = 4f;
 
-    [Range(0, 100)] [SerializeField] private float displayPaddingX;
-    [Range(45, 100)] [SerializeField] private float displayPaddingY;
+    [Header("Test")]
+    [SerializeField] private Transform lookAt;
+    [SerializeField] private Vector3 offset;
+    private Camera cam;
+
     private void Awake()
     {
         //Turn off both gameobjects.
-        //textName.gameObject.SetActive(false);
-        //textBackground.gameObject.SetActive(false);
+        textName.gameObject.SetActive(false);
+        textBackground.gameObject.SetActive(false);
         //Gives refrence to script easily accesible.
         s_spokenDisplay = this;
 
-        playerLocation = FindObjectOfType<PlayerNavMesh>().transform;
+        cam = Camera.main;
     }
 
     private void Update()
     {
-        Vector2 localPoint;
-        Vector3 inWorldPoint;
-        //Have display hover over cursor
-        RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.parent.GetComponent<RectTransform>(), playerLocation.position, uiCamera, out inWorldPoint);
-        //Pad cursor location to not cover cursor
-        //localPoint = new Vector2(localPoint.x + displayPaddingX, localPoint.y + displayPaddingY);
-        transform.localPosition = inWorldPoint;
+        Vector3 pos = cam.WorldToScreenPoint(lookAt.position + offset);
+
+        if(transform.position != pos)
+        {
+            transform.position = pos;
+        }
     }
 
     /// <summary>
@@ -58,7 +60,7 @@ public class SpokenDisplay : MonoBehaviour
             float textPaddingSize = 4f;
             Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize * 2f, nameText.preferredHeight + textPaddingSize * 2f);
             backgroundText.sizeDelta = backgroundSize;
-            
+            s_spokenDisplay.StartCoroutine(s_spokenDisplay.TimerToRemoveSpokenText());
         }
     }
 
