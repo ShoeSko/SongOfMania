@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
 {
     public Texture characterEurydice;
     public Texture characterOrpheus;
+    public Texture characterUnknown;
     public RawImage characterRight;
     public RawImage characterLeft;
 
@@ -20,6 +21,8 @@ public class Dialogue : MonoBehaviour
     public TMP_Text namePlateLeft;
     public GameObject dialogueParent;
     public GameObject TSVreader;
+
+    public static bool isDialogue = false;
 
     public int nextLine;
     [HideInInspector]
@@ -50,9 +53,11 @@ public class Dialogue : MonoBehaviour
 
     void getDialogue(int readLine)
     {
+        
         otherTexture = null;
         if (readLine > -1)
         {
+            isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
             displayText.text = TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].promt;
             switch (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].who)
@@ -65,17 +70,23 @@ public class Dialogue : MonoBehaviour
                     whoName = "Eurydice";
                     who = characterEurydice;
                     break;
-
+                case "???":
+                    whoName = "???";
+                    who = characterUnknown;
+                    break;
+                case "no":
+                    who = null;
+                    break;
                 default:
                     break;
             }
             switch (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].Position)
             {
-                case "Left":
-                    whereLeft = false;
-                    break;
-                case "Right":
+                case "L":
                     whereLeft = true;
+                    break;
+                case "R":
+                    whereLeft = false;
                     break;
                 default:
                     break;
@@ -88,14 +99,24 @@ public class Dialogue : MonoBehaviour
                 case "Eurydice":
                     otherTexture = characterEurydice;
                     break;
-                case "no":
+                case "???":
+                    otherTexture = characterUnknown;
+                    break;
+                case "No":
                     otherTexture = null;
                     break;
                 default:
                     otherTexture = null;
                     break;
             }
-            nextLine = TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].next - 2;
+            if (TSVreader.GetComponent<dialogueCSV>().myDialogueList.dialogue[readLine].next == 0)
+            {
+                nextLine = -1;
+            }
+            else
+            {
+                nextLine = readLine + 1;
+            }
             displayImage();
         }
         else
@@ -114,22 +135,25 @@ public class Dialogue : MonoBehaviour
         characterRight.gameObject.SetActive(false);
         plateRight.gameObject.SetActive(false);
         plateLeft.gameObject.SetActive(false);
+        if (who != null)
+        {
+            if (whereLeft)
+            {
+                characterLeft.color = new Color(1f, 1f, 1f);
+                characterLeft.gameObject.SetActive(true);
+                plateLeft.gameObject.SetActive(true);
+                namePlateLeft.text = whoName;
+                characterLeft.texture = who;
+            }
+            else
+            {
+                characterRight.color = new Color(1f, 1f, 1f);
+                characterRight.gameObject.SetActive(true);
+                plateRight.gameObject.SetActive(true);
+                namePlateRight.text = whoName;
+                characterRight.texture = who;
+            }
 
-        if (whereLeft)
-        {
-            characterLeft.color = new Color(1f, 1f, 1f);
-            characterLeft.gameObject.SetActive(true);
-            plateLeft.gameObject.SetActive(true);
-            namePlateLeft.text = whoName;
-            characterLeft.texture = who;
-        }
-        else
-        {
-            characterRight.color = new Color(1f, 1f, 1f);
-            characterRight.gameObject.SetActive(true);
-            plateRight.gameObject.SetActive(true);
-            namePlateRight.text = whoName;
-            characterRight.texture = who;
         }
         if (otherTexture != null)
         {
@@ -158,6 +182,7 @@ public class Dialogue : MonoBehaviour
     }
     void dialogueFinished()
     {
+        isDialogue = false;
         dialogueParent.gameObject.SetActive(false);
     }
 

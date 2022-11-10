@@ -2118,6 +2118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterEurydice: {fileID: 2800000, guid: c8e896953bd80bf4388d2a8383e1343c, type: 3}
   characterOrpheus: {fileID: 2800000, guid: afe07188eaf36054dacccc3c91f93342, type: 3}
+  characterUnknown: {fileID: 2800000, guid: 96b238e0caaf54a4197e8d99cd2fc33d, type: 3}
   characterRight: {fileID: 1603925849}
   characterLeft: {fileID: 81473024}
   plateRight: {fileID: 1990625525}
@@ -2145,7 +2146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ba8c34f62e0804ba8a29f78de7a538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textAssetData: {fileID: 4900000, guid: 42d3a3070279a9048b2b56a2fbb436df, type: 3}
+  textAssetData: {fileID: 4900000, guid: 198cc9a0bd4ab6c4695d4b1ccdc31484, type: 3}
   myDialogueList:
     dialogue: []
 --- !u!1 &673167897
