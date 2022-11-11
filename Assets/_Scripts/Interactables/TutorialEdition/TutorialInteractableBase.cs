@@ -1,9 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialInteractableBase : ObjectBase
 {
+    [Header("Bookshelf Stool spawn")]
+    //I exist only to be summoned in front of a bookshelf
+    [SerializeField] private GameObject stoolPrefab;
+    [SerializeField] private Transform stoolPlacement;
+
+    [Header("Teleport Variables")]
+    [SerializeField] private bool isTeleporter;
+    [SerializeField] private bool changeScene;
+    [SerializeField] private Transform teleportLocation;
+    [SerializeField] private GameObject teleportTarget;
+    [SerializeField] private Camera[] cam;
+
     private void Awake()
     {
         //Confirm I am Interactable
@@ -16,6 +29,7 @@ public class TutorialInteractableBase : ObjectBase
         print("Triggered");
         print(TutorialManager.s_tutorialStage);
         base.OnActivate();
+
         switch (TutorialManager.s_tutorialStage)
         {
             case 0:
@@ -46,17 +60,25 @@ public class TutorialInteractableBase : ObjectBase
                 dialogueInstance.getDialogue(22);
                 break;
 
-            case 5:
+            case 5: //Recieve chair
+                
                 dialogueInstance.getDialogue(23);
                 break;
 
-            case 6:
+            case 6: //Key on Door
 
                 break;
 
-            case 7:
-
+            case 7: //Use Door
+                if(row == 0)
+                {
+                    TeleportPlayer(); //If Door + is Teleporter, Send player to location.
+                }
                 break;
+        }
+        if (row == 0)
+        {
+            TeleportPlayer(); //If Door + is Teleporter, Send player to location.
         }
     }
 
@@ -106,5 +128,38 @@ public class TutorialInteractableBase : ObjectBase
 
                 break;
         }
+    }
+
+    public override void OnRecieve()
+    {
+        base.OnRecieve();
+        if(row == 1)
+        {
+            Instantiate(stoolPlacement, stoolPlacement);
+        }
+    }
+
+    private void TeleportPlayer()
+    {
+        if (isTeleporter)
+        {
+            if (changeScene)
+            {
+                //Scene command here
+                SceneManager.LoadScene(2); //Supposed credit Page?
+            }
+            else
+            {
+                //Move Target from A to B
+                teleportTarget.transform.position = teleportLocation.position;
+                ChangeCamera();
+            }
+        }
+    }
+
+    private void ChangeCamera()
+    {
+        cam[1].enabled = true;
+        cam[0].enabled = false;
     }
 }

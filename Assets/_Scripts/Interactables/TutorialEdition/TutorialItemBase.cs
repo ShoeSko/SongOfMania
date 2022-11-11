@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TutorialItemBase : ObjectBase
 {
-    [SerializeField] private GameObject chairPrefab;
     private void Awake()
     {
         //Confirm I am Item
@@ -48,6 +47,7 @@ public class TutorialItemBase : ObjectBase
                     //Pick Up chair
 
                     //Remove old object, not needed anymore. (Will spawn object instead for placement of new chair (Without script)
+                    //Trigger Dialogue
                     Destroy(gameObject);
                 }
                 else

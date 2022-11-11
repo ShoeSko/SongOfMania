@@ -224,6 +224,10 @@ public class ObjectBase : MonoBehaviour
             }
 
             //Setup for both On Active & OnRecieve
+            if (Input.GetMouseButtonDown(0) /*Add condition of Inventory use*/)
+            {
+                //run Recieve function //Later
+            }
             if (Input.GetMouseButton(0))
             {
                 ApproachOnClick();
