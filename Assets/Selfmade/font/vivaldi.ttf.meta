@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dd39e91de1078c34ba55c19080dda740
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vivaldi
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ad2e405000f3a3e4c8a4867968e53527, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
