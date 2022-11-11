@@ -28,7 +28,7 @@ public class ObjectBase : MonoBehaviour
     public Transform interactLocation { get; protected set; }
     public static ObjectBase s_objectInstance;
     //Activate the given function
-    private bool activate = false;
+    [HideInInspector] public bool activate = false;
     //In theory this one will be needed for Recieve as well. Make seperate function perhaps?
     [HideInInspector] public bool clickedObject;
 
@@ -85,6 +85,8 @@ public class ObjectBase : MonoBehaviour
 
     private void Update()
     {
+        print(TutorialManager.s_tutorialStage);
+
         HighlightInteractable();
 
         PlayerNearActivate();
@@ -132,8 +134,9 @@ public class ObjectBase : MonoBehaviour
 
     public virtual void PlayerNearActivate()
     {
+
         //If not ClickedObject anymore, that means we do not want to activate it.
-        if (clickedObject)
+        if (s_objectInstance.clickedObject && s_objectInstance==this)
         {
             activate = true;
         }
@@ -150,6 +153,7 @@ public class ObjectBase : MonoBehaviour
                     //Else
                     //No longer activate after use.
                     activate = false;
+                    clickedObject = false;
                     OnActivate();
                 }
             }
@@ -214,7 +218,7 @@ public class ObjectBase : MonoBehaviour
         if (!Dialogue.isDialogue)
         {
             //Trigger OnInspect
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButtonDown(1))
             {
                 OnInspect();
             }

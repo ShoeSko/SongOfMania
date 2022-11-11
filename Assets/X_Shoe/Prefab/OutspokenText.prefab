@@ -186,12 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af1fb0f8e0ba134bb28790efaa0d419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCamera: {fileID: 0}
   textName: {fileID: 7765316459035944592}
   textBackground: {fileID: 7765316459578060049}
   textVisiblityTime: 4
-  displayPaddingX: 0
-  displayPaddingY: 50
+  lookAt: {fileID: 0}
+  offset: {x: -1.4, y: 2.1, z: 0}
 --- !u!1 &7765316459578060048
 GameObject:
   m_ObjectHideFlags: 0

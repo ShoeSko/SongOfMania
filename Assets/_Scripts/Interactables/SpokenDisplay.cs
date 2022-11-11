@@ -9,7 +9,6 @@ public class SpokenDisplay : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private RectTransform textBackground;
-    private Transform playerLocation;
     public float textVisiblityTime = 4f;
 
     [Header("Test")]

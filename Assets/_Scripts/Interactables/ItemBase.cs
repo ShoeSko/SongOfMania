@@ -7,7 +7,7 @@ public class ItemBase : ObjectBase
 
     private void Awake()
     {
-        //Confirm I am NPC
+        //Confirm I am Item
         isItem = true;
 
     }
