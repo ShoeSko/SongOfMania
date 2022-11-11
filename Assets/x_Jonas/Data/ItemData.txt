@@ -1,0 +1,10 @@
+stool	Stool	The chair! I just need to pick it up by [Using] it by pressing [Left click]	i dont think thats right	The chair! I just need to pick it up by [Using] it by pressing [Left click]	bookshelf	key
+key	Key	Now i need to [use] the key on the door	i dont think thats right	Got it! Now i need to [use] the key on the door	door_bedroom	
+broken_lyre	Broken Lyre	This place is a mess! guess i'll jist have to look for the string	i dont think thats right	no	lyre_string	lyre
+rake	Rake	here I go, cleaning your mess again darling	i dont think thats right	here I go, cleaning your mess again darling	pile_of_mess	lyre_string
+lyre_string	Lyre String	Now to combine the cord and the lyre. If i [Use] one of the items on the other i should combine it	i dont think thats right	Now to combine the cord and the lyre. If i [Use] one of the items on the other i should combine it	broken_lyre	lyre
+lyre	Lyre 	Fixed! now i should give it to Orpheus	i dont think thats right	Fixed! now i should give it to Orpheus	orpheus	
+door_bedroom	Bedroom Door					
+bookshelf	Bookshelf					
+pile_of_mess	Pile of mess					
+orpheus	Orpheus					

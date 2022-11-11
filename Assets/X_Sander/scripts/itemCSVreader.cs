@@ -22,6 +22,7 @@ public class itemCSVreader : MonoBehaviour
     {
         public Item[] item;
     }
+
     public ItemList myItemList = new ItemList();
 
     void Start()
