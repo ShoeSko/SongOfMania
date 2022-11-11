@@ -28,6 +28,10 @@ public class Billboard : MonoBehaviour
         {
             Billboarding();
         }
+        else
+        {
+            transform.LookAt(cam.transform);
+        }
     }
 
     private void Billboarding()
@@ -48,7 +52,7 @@ public class Billboard : MonoBehaviour
             case 0:
                 break;
             case 1:
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0f, 0f);
+                transform.rotation = Quaternion.Euler(-transform.rotation.eulerAngles.x, 0f, 0f);
                 break;
             case 2:
                 transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);

@@ -15,6 +15,7 @@ public class PlayerNavMesh : MonoBehaviour
 
     public GameObject targetDestination;
 
+    public Vector3 movingment;
 
     public static bool s_reachedLocation;
     private void Awake()
@@ -28,6 +29,23 @@ public class PlayerNavMesh : MonoBehaviour
         if (!Dialogue.isDialogue)
         {
             PlayerClick();
+        }
+
+        if (playerNavAgent.velocity.x > 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
+        else if(playerNavAgent.velocity.x < 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
+        if (playerNavAgent.velocity != Vector3.zero)
+        {
+            GetComponentInChildren<Animator>().enabled = true;
+        }
+        else
+        {
+            GetComponentInChildren<Animator>().enabled = false;
         }
     }
 
@@ -58,9 +76,6 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void IsPlayerWalking()
     {
-        if(playerNavAgent.velocity != Vector3.zero)
-        {
-            //Player is now walking
-        }
+        
     }
 }
