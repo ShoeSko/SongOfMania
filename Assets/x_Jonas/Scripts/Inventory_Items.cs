@@ -16,11 +16,15 @@ public class Inventory_Items : MonoBehaviour
     public List<GameObject> barItems;
     public GameObject itemBG;
 
+    public itemCSVreader itemInstance { get; protected set; }
+
     private void Start()
     {
         selectedItem = null;
         inventory = new List<string>();
         readItemTSV();
+
+        itemInstance = FindObjectOfType<itemCSVreader>();
     }
 
     private void Update()
@@ -68,6 +72,7 @@ public class Inventory_Items : MonoBehaviour
     public void OnInspect(string itemName)
     {
         // Send dialogue
+        SpokenDisplay.ShowDisplaySpoken_Static(items[itemName].onInspect);
         // [TextScript].write(items[itemName].onInspect)
 
         // Temp
@@ -79,6 +84,7 @@ public class Inventory_Items : MonoBehaviour
         if (itemPos < inventory.Count)
         {
             // Send dialogue
+            SpokenDisplay.ShowDisplaySpoken_Static(items[inventory[itemPos]].onInspect);
             // [TextScript].write(items[inventory[itemPos]].onInspect)
 
             // Temp
@@ -92,6 +98,7 @@ public class Inventory_Items : MonoBehaviour
         UpdateInventory();
 
         // Send dialogue
+        SpokenDisplay.ShowDisplaySpoken_Static(items[itemName].onPickup);
         // [TextScript].write(items[itemName].onPickup)
 
         // Temp
@@ -114,6 +121,7 @@ public class Inventory_Items : MonoBehaviour
         }
 
         // Send dialogue
+        SpokenDisplay.ShowDisplaySpoken_Static(items[targetItem].onPickup);
         // [TextScript].write(items[itemName].onPickup)
 
         // Temp
@@ -144,6 +152,7 @@ public class Inventory_Items : MonoBehaviour
             if (selectedItem == null) return;
 
             // Send dialogue
+            SpokenDisplay.ShowDisplaySpoken_Static(items[inventory[itemPos]].onPickup);
             // [TextScript].write(items[itemName].onPickup)
 
             // Temp
