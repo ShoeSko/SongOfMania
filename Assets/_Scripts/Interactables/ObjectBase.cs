@@ -5,27 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class ObjectBase : MonoBehaviour
 {
-    [Header("Item Parameters")]
-    [Tooltip("Is this object an Item?")] 
-    public bool isItem;
-    public string itemName;
-    private int itemSheet;
-    private int itemRow;
-
-    [Header("Interactable Parameter")]
-    [Tooltip("Is this object an interactable?")]
-    public bool isInteractable;
-    public string interactableName;
-    private int interactableSheet;
-    private int interactableRow;
-
-    [Header("NPC Parameter")]
-    public string npcName;
+    [Header("SpreadSheet")]
+    public int sheet;
+    public int row;
+    //What is this object (Edited in child)
+    public bool isItem { get; protected set; }
+    public bool isInteractable { get; protected set; }
     public bool isNPC { get; protected set; }
-    private int npcSheet;
-    private int npcRow;
 
-    public Dialogue dialogueInstance { get; private set; }
+    //Basic Variables all children will contain
+    public string objectName { get; protected set; }
+    public Dialogue dialogueInstance { get; protected set; }
+    public itemCSVreader itemInstance { get; protected set; }
+    public interactableCSVreader interactableInstace { get; protected set; }
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
@@ -62,8 +54,21 @@ public class ObjectBase : MonoBehaviour
             interactLocation = this.transform;
         }
 
-        //Find the dialogue script int scene (Should only be 1 per lvl)
         dialogueInstance = FindObjectOfType<Dialogue>();
+        itemInstance = FindObjectOfType<itemCSVreader>();
+        interactableInstace = FindObjectOfType<interactableCSVreader>();
+
+
+        StartCoroutine(WaitForInformation());
+    }
+
+    IEnumerator WaitForInformation()
+    {
+        yield return new WaitForFixedUpdate();
+        objectName = itemInstance.myItemList.item[row].name;
+        //Find the dialogue script int scene (Should only be 1 per lvl)
+
+
     }
 
     private void Update()
@@ -183,23 +188,7 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     private void DisplayName()
     {
-        //Trigger from OnMouseOver
-        //Have reference to text object
-        //Display Name from Sheet/Given in text
-        //Hide when no longer
-        if (isItem)
-        {
-
-            NameDisplay.ShowDisplayName_Static(itemName);
-        }
-        else if (isInteractable)
-        {
-            NameDisplay.ShowDisplayName_Static(interactableName);
-        }
-        else
-        {
-            NameDisplay.ShowDisplayName_Static(npcName);
-        }
+        NameDisplay.ShowDisplayName_Static(objectName);
     }
 
 
