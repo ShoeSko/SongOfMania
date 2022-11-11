@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Inventory_Items : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Inventory_Items : MonoBehaviour
 
     public List<GameObject> barItems;
     public GameObject itemBG;
+
+    public List<Sprite> itemIcons;
 
     public itemCSVreader itemInstance { get; protected set; }
 
@@ -66,7 +69,44 @@ public class Inventory_Items : MonoBehaviour
         itemBG.SetActive(false);
         if (!inventory.Contains(selectedItem)) selectedItem = null;
 
+
+        for (int i = 0; i < barItems.Count; i++)
+        {
+            if (inventory.Count > i)
+            {
+                switch (inventory[i])
+                {
+                    case "stool":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[0];
+                        break;
+                    case "key":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[1];
+                        break;
+                    case "broken_lyre":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[2];
+                        break;
+                    case "rake":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[3];
+                        break;
+                    case "lyre_string":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[4];
+                        break;
+                    case "lyre":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[5];
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+            {
+                barItems[i].GetComponent<Image>().sprite = null;
+            }
+        }
         // Refresh inventory visuals
+
+
     }
 
     public void OnInspect(string itemName)
