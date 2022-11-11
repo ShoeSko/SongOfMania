@@ -80,14 +80,4 @@ public class TutorialInteractable : InteractableBase
                 break;
         }
     }
-    private void LateUpdate()
-    {
-        print(TutorialManager.s_tutorialStage);
-        print("HELP ME");
-    }
-
-    private void OnMouseExit()
-    {
-        print("Hi");
-    }
 }

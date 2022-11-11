@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 //You Must have a NavMeshAgent to use this Script
-[RequireComponent(typeof(NavMeshAgent), typeof(Billboard), typeof(Collider))]
+[RequireComponent(typeof(NavMeshAgent), typeof(Collider))]
 public class PlayerNavMesh : MonoBehaviour
 {
     //Simple Refrence to the NavMeshAgent on the object that is to move(This case player)
@@ -18,6 +18,7 @@ public class PlayerNavMesh : MonoBehaviour
     public Vector3 movingment;
 
     public static bool s_reachedLocation;
+    public static int s_timesMoved;
     private void Awake()
     {
         playerNavAgent = GetComponent<NavMeshAgent>();
@@ -57,7 +58,7 @@ public class PlayerNavMesh : MonoBehaviour
             ObjectBase.s_objectInstance.clickedObject = false;
             targetDestination.transform.position = ObjectBase.s_objectInstance.interactLocation.position;
             playerNavAgent.SetDestination(ObjectBase.s_objectInstance.interactLocation.position);
-
+            s_timesMoved++;
         }
         else if (Input.GetMouseButton(0))
         {
@@ -69,6 +70,7 @@ public class PlayerNavMesh : MonoBehaviour
                 targetDestination.transform.position = hitPoint.point;
                 playerNavAgent.SetDestination(hitPoint.point);
             }
+            s_timesMoved++;
         }
     }
 

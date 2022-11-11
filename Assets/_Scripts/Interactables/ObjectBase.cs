@@ -65,7 +65,19 @@ public class ObjectBase : MonoBehaviour
     IEnumerator WaitForInformation()
     {
         yield return new WaitForFixedUpdate();
-        objectName = itemInstance.myItemList.item[row].name;
+        if (isItem)
+        {
+            objectName = itemInstance.myItemList.item[row].name;
+        }
+        else if (isInteractable)
+        {
+            objectName = interactableInstace.myInteractableList.interactable[row].name;
+        }
+        else
+        {
+            //Change to NPC later
+            objectName = interactableInstace.myInteractableList.interactable[row].name;
+        }
         //Find the dialogue script int scene (Should only be 1 per lvl)
 
 
