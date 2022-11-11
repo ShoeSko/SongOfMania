@@ -52,6 +52,10 @@ public class NameDisplay : MonoBehaviour
             Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize *2f, nameText.preferredHeight + textPaddingSize *2f);
             backgroundText.sizeDelta = backgroundSize;
         }
+        else
+        {
+            HideDisplayName_Static();
+        }
     }
 
 

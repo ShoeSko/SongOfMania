@@ -5,5 +5,11 @@ using UnityEngine;
 public class ItemBase : ObjectBase
 {
 
+    private void Awake()
+    {
+        //Confirm I am NPC
+        isItem = true;
+
+    }
 
 }

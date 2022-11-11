@@ -7,7 +7,6 @@ public class SpokenDisplay : MonoBehaviour
 {
     public static SpokenDisplay s_spokenDisplay;
 
-    [SerializeField] private Camera uiCamera;
     [SerializeField] private TextMeshProUGUI textName;
     [SerializeField] private RectTransform textBackground;
     private Transform playerLocation;

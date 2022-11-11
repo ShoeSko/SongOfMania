@@ -8,6 +8,7 @@ public class NPCBase : ObjectBase
     [SerializeField] private int dialogueIndexToCall;
     private void Awake()
     {
+
         //Confirm I am NPC
         isNPC = true;
     }
