@@ -480,8 +480,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1062,8 +1062,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1197,8 +1197,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: ead8f9d9076b9f3439f28f2b57fbadbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1753,8 +1753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbc464c3d116f043823ecb1941f1796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterEurydice: {fileID: 2800000, guid: c8e896953bd80bf4388d2a8383e1343c, type: 3}
-  characterOrpheus: {fileID: 2800000, guid: afe07188eaf36054dacccc3c91f93342, type: 3}
+  characterEurydice: {fileID: 2800000, guid: 4c2903381d4896b4a8ddac197689b993, type: 3}
+  characterOrpheus: {fileID: 2800000, guid: 84e51bff25f69664c9b7130de4b282d1, type: 3}
   characterUnknown: {fileID: 2800000, guid: 96b238e0caaf54a4197e8d99cd2fc33d, type: 3}
   characterRight: {fileID: 5382982819205588248}
   characterLeft: {fileID: 5382982820123999297}
