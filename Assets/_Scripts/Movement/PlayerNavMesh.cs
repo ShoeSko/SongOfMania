@@ -62,6 +62,7 @@ public class PlayerNavMesh : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
+            cam = Camera.main;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPoint;
 

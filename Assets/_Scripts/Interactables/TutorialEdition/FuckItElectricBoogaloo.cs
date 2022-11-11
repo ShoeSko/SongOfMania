@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialInteractableBase : ObjectBase
+public class FuckItElectricBoogaloo :ObjectBase
 {
     [Header("Bookshelf Stool spawn")]
     //I exist only to be summoned in front of a bookshelf
@@ -60,7 +60,7 @@ public class TutorialInteractableBase : ObjectBase
                 break;
 
             case 5: //Recieve chair
-                
+
                 dialogueInstance.getDialogue(23);
                 break;
 
@@ -69,7 +69,7 @@ public class TutorialInteractableBase : ObjectBase
                 break;
 
             case 7: //Use Door
-                if(row == 0)
+                if (row == 0)
                 {
                     TeleportPlayer(); //If Door + is Teleporter, Send player to location.
                 }
@@ -132,7 +132,7 @@ public class TutorialInteractableBase : ObjectBase
     public override void OnRecieve()
     {
         base.OnRecieve();
-        if(row == 1)
+        if (row == 1)
         {
             Instantiate(stoolPlacement, stoolPlacement);
         }

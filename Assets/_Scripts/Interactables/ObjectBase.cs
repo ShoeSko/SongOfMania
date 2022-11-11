@@ -139,13 +139,16 @@ public class ObjectBase : MonoBehaviour
         if (s_objectInstance.clickedObject && s_objectInstance==this)
         {
             activate = true;
+            print("is active");
         }
 
         if (activate)
         {
+            print("is active");
             Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
             for (int i = 0; i < locatePlayer.Length; i++)
             {
+                print("Looking for player");
                 if (locatePlayer[i].GetComponent<PlayerNavMesh>())
                 {
                     //Now you can activate either OnActive or OnRecieve
