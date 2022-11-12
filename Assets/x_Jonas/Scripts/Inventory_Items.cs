@@ -200,6 +200,9 @@ public class Inventory_Items : MonoBehaviour
         }
     }
 
+
+
+
     void readItemTSV()
     {
         string[] data = itemDataSheet.text.Split(new string[] { "\t", "\n" }, StringSplitOptions.None);

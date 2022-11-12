@@ -16,7 +16,6 @@ public class Billboard : MonoBehaviour
     //This refrences a Camera, if there is a camera shift in play, this MUST be changed as well. Make adaptable
     [SerializeField] private Camera cam;
 
-
     private void Start()
     {
         //Set start camera to main camera
@@ -24,6 +23,8 @@ public class Billboard : MonoBehaviour
     }
     private void LateUpdate()
     {
+        cam = Camera.main;
+
         if (useBillboard)
         {
             Billboarding();

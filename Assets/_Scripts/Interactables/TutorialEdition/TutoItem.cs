@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialItemBase : ObjectBase
+public class TutoItem : ObjectBase
 {
     private void Awake()
     {
         //Confirm I am Item
         isItem = true;
-
     }
 
     public override void OnActivate()
@@ -42,12 +41,9 @@ public class TutorialItemBase : ObjectBase
                 break;
 
             case 4: //Pick Up Chair
-                if(row == 1)
+                if (row == 1)
                 {
-                    //Pick Up chair
-
-                    //Remove old object, not needed anymore. (Will spawn object instead for placement of new chair (Without script)
-                    //Trigger Dialogue
+                    inventoryInstance.PickUpItem(name);
                     Destroy(gameObject);
                 }
                 else
@@ -90,7 +86,7 @@ public class TutorialItemBase : ObjectBase
                 break;
 
             case 3: //Find Key
-                if(row == 1)
+                if (row == 1)
                 {
                     dialogueInstance.getDialogue(16);
                     ++TutorialManager.s_tutorialStage;
@@ -102,7 +98,7 @@ public class TutorialItemBase : ObjectBase
                 break;
 
             case 4: //Pick Up Chair
-                if(row == 0)
+                if (row == 0)
                 {
                     SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[0].inspectPromt);
                 }
@@ -125,4 +121,6 @@ public class TutorialItemBase : ObjectBase
                 break;
         }
     }
+
+
 }

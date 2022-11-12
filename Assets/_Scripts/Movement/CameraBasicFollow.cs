@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CameraBasicFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    public static Transform target;
     [SerializeField] private Vector3 offset;
 
+    private void Start()
+    {
+        target = FindObjectOfType<PlayerNavMesh>().transform;
+    }
     // Update is called once per frame
     void Update()
     {

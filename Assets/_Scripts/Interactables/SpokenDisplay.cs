@@ -29,6 +29,7 @@ public class SpokenDisplay : MonoBehaviour
 
     private void Update()
     {
+        lookAt = FindObjectOfType<PlayerNavMesh>().transform;
         Vector3 pos = cam.WorldToScreenPoint(lookAt.position + offset);
 
         if(transform.position != pos)

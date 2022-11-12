@@ -18,6 +18,7 @@ public class ObjectBase : MonoBehaviour
     public Dialogue dialogueInstance { get; protected set; }
     public itemCSVreader itemInstance { get; protected set; }
     public interactableCSVreader interactableInstace { get; protected set; }
+    public Inventory_Items inventoryInstance { get; protected set; }
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
@@ -57,6 +58,7 @@ public class ObjectBase : MonoBehaviour
         dialogueInstance = FindObjectOfType<Dialogue>();
         itemInstance = FindObjectOfType<itemCSVreader>();
         interactableInstace = FindObjectOfType<interactableCSVreader>();
+        inventoryInstance = FindObjectOfType<Inventory_Items>();
 
 
         StartCoroutine(WaitForInformation());
@@ -185,7 +187,7 @@ public class ObjectBase : MonoBehaviour
     private void HighlightInteractable()
     {
         //Trigger Highlight
-        if (Input.GetMouseButton(2) || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
+        if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
         {
             //Get reference to Highlight material that is in asset folder called Resources
             Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
@@ -227,11 +229,11 @@ public class ObjectBase : MonoBehaviour
             }
 
             //Setup for both On Active & OnRecieve
-            if (Input.GetMouseButtonDown(0) /*Add condition of Inventory use*/)
+            if (Input.GetMouseButtonDown(0) && inventoryInstance.selectedItem != null)
             {
-                //run Recieve function //Later
+                OnRecieve();
             }
-            if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButton(0))
             {
                 ApproachOnClick();
             }

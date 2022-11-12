@@ -32,22 +32,7 @@ public class PlayerNavMesh : MonoBehaviour
             PlayerClick();
         }
 
-        if (playerNavAgent.velocity.x > 0)
-        {
-            GetComponentInChildren<SpriteRenderer>().flipX = true;
-        }
-        else if(playerNavAgent.velocity.x < 0)
-        {
-            GetComponentInChildren<SpriteRenderer>().flipX = false;
-        }
-        if (playerNavAgent.velocity != Vector3.zero)
-        {
-            GetComponentInChildren<Animator>().enabled = true;
-        }
-        else
-        {
-            GetComponentInChildren<Animator>().enabled = false;
-        }
+        IsPlayerWalking();
     }
 
     private void PlayerClick()
@@ -79,6 +64,21 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void IsPlayerWalking()
     {
-        
+        if (playerNavAgent.velocity.x > 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
+        else if (playerNavAgent.velocity.x < 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
+        if (playerNavAgent.velocity != Vector3.zero)
+        {
+            GetComponentInChildren<Animator>().enabled = true;
+        }
+        else
+        {
+            GetComponentInChildren<Animator>().enabled = false;
+        }
     }
 }
