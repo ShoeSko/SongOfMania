@@ -27,7 +27,8 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void Update()
     {
-        if (!Dialogue.isDialogue)
+        //You may move if 1, not running Dialogue & Not hovering over Inventory
+        if (!Dialogue.isDialogue && !InventoryCursorNotice.s_hoveringOverInventory)
         {
             PlayerClick();
         }

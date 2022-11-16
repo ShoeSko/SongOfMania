@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialInteract : ObjectBase
+public class Tutorial_Key : ObjectBase
 {
     [Header("Key Collection Settings")]
     //I exist only to be summoned in front of a bookshelf
     [SerializeField] private GameObject stoolPrefab;
     [SerializeField] private Transform stoolPlacement;
+
+    [Header("Highlight needs")]
+    [SerializeField] private MeshRenderer[] materialsToChange;
+    [SerializeField] private Material originalRakeMaterial;
 
     private void Awake()
     {
@@ -21,7 +25,7 @@ public class TutorialInteract : ObjectBase
 
         if (!TutorialManager.s_leftBedroom)
         {
-                switch (TutorialManager.s_tutorialStage)
+            switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
                     dialogueInstance.getDialogue(4);
@@ -73,11 +77,6 @@ public class TutorialInteract : ObjectBase
                     break;
             }
         }
-        if(row == 3)
-        {
-            inventoryInstance.PickUpItem(name);
-            Destroy(gameObject.transform.parent.gameObject);
-        }
     }
 
     public override void OnInspect()
@@ -87,7 +86,7 @@ public class TutorialInteract : ObjectBase
         if (!TutorialManager.s_leftBedroom)
         {
 
-                switch (TutorialManager.s_tutorialStage)
+            switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
                     dialogueInstance.getDialogue(4);
@@ -137,11 +136,6 @@ public class TutorialInteract : ObjectBase
                     break;
             }
         }
-
-        if(row == 3)
-        {
-            SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[3].inspectPromt);
-        }
     }
 
     public override void OnRecieve()
@@ -158,6 +152,29 @@ public class TutorialInteract : ObjectBase
             ++TutorialManager.s_tutorialStage;
             //Destroy the key
             Destroy(gameObject);
+        }
+    }
+
+    public override void HighlightInteractable()
+    {
+        //Trigger Highlight
+        if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
+        {
+            //Get reference to Highlight material that is in asset folder called Resource0s
+            Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
+            for (int i = 0; i < materialsToChange.Length; i++)
+            {
+                //Get Refernece to Object Meshrender & set material to highlightMaterial
+                materialsToChange[i].material = highlightMaterial;
+            }
+        }
+        else if (!isNPC)
+        {
+            for (int i = 0; i < materialsToChange.Length; i++)
+            {
+                //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
+                materialsToChange[i].material = originalRakeMaterial;
+            }
         }
     }
 }

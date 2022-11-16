@@ -43,7 +43,10 @@ public class ObjectBase : MonoBehaviour
         if(!isNPC)
         {
             //Store current material for end of highligh
-            originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
+            if (GetComponent<MeshRenderer>())
+            {
+                originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
+            }
         }
 
         if (transform.childCount > 0)
@@ -100,7 +103,7 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     {
-        Debug.Log("Activated ");
+        //Debug.Log("Activated ");
         //Something Dialogue activation
     }
 
@@ -141,16 +144,16 @@ public class ObjectBase : MonoBehaviour
         if (s_objectInstance.clickedObject && s_objectInstance==this)
         {
             activate = true;
-            print("is active");
+            //print("is active");
         }
 
         if (activate)
         {
-            print("is active");
+            //print("is active");
             Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
             for (int i = 0; i < locatePlayer.Length; i++)
             {
-                print("Looking for player");
+                //print("Looking for player");
                 if (locatePlayer[i].GetComponent<PlayerNavMesh>())
                 {
                     //Now you can activate either OnActive or OnRecieve
@@ -159,7 +162,15 @@ public class ObjectBase : MonoBehaviour
                     //No longer activate after use.
                     activate = false;
                     clickedObject = false;
-                    OnActivate();
+
+                    if(inventoryInstance.selectedItem != null)
+                    {
+                        OnRecieve();
+                    }
+                    else
+                    {
+                        OnActivate();
+                    }
                 }
             }
         }
@@ -184,7 +195,7 @@ public class ObjectBase : MonoBehaviour
     /// Highlight this object when pressing scroll wheel / Space button
     /// Unless NPC
     /// </summary>
-    private void HighlightInteractable()
+    public virtual void HighlightInteractable()
     {
         //Trigger Highlight
         if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
@@ -231,7 +242,7 @@ public class ObjectBase : MonoBehaviour
             //Setup for both On Active & OnRecieve
             if (Input.GetMouseButtonDown(0) && inventoryInstance.selectedItem != null)
             {
-                OnRecieve();
+                ApproachOnClick();
             }
             else if (Input.GetMouseButton(0))
             {

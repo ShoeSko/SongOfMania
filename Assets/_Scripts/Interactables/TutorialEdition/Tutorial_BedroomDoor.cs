@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialItem : ObjectBase
+public class Tutorial_BedroomDoor : ObjectBase
 {
-    [Header("Bookshelf Stool spawn")]
-    //I exist only to be summoned in front of a bookshelf
-    [SerializeField] private GameObject stoolPrefab;
-    [SerializeField] private Transform stoolPlacement;
-
     [Header("Teleport Variables")]
     [SerializeField] private bool isTeleporter;
     [SerializeField] private bool changeScene;
     [SerializeField] private GameObject[] teleportTarget;
-    [SerializeField] private Camera[] cam;
 
     private void Awake()
     {
         //Confirm I am Interactable
         isInteractable = true;
-
     }
 
     public override void OnActivate()
@@ -31,8 +24,8 @@ public class TutorialItem : ObjectBase
 
         if (!TutorialManager.s_leftBedroom)
         {
-                switch (TutorialManager.s_tutorialStage)
-                {
+            switch (TutorialManager.s_tutorialStage)
+            {
                 case 0:
                     dialogueInstance.getDialogue(4);
                     break;
@@ -76,14 +69,14 @@ public class TutorialItem : ObjectBase
                         TeleportPlayer(); //If Door + is Teleporter, Send player to location.
                     }
                     break;
-                }
+            }
         }
 
-        if(row == 3)
+        if (row == 3)
         {
             SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[3].inspectPromt);
         }
-        if(row == 4 && TutorialManager.s_finishedTutorial)
+        if (row == 4 && TutorialManager.s_finishedTutorial)
         {
             TeleportPlayer();
         }
@@ -138,12 +131,12 @@ public class TutorialItem : ObjectBase
                     break;
             }
         }
-        if(row == 3)
+        if (row == 3)
         {
             //Pile Inspect
             SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[3].inspectPromt);
         }
-        
+
 
     }
 
@@ -153,24 +146,11 @@ public class TutorialItem : ObjectBase
         base.OnRecieve();
         print(itemName + " was given to " + name);
 
-
-        if (row == 1 && itemName == "stool")
-        {
-            Instantiate(stoolPrefab, stoolPlacement);
-            inventoryInstance.UseItem("bookshelf", true);
-            ++TutorialManager.s_tutorialStage;
-        }
         if (row == 0)
         {
             inventoryInstance.UseItem("door_bedroom", false);
             StartCoroutine(UnlockingDoor());
-            //Will not teleport player but make door usable...
-            //TeleportPlayer(); //If Door + is Teleporter, Send player to location.
-        }
-        if(row == 3 && itemName == "rake")
-        {
-            inventoryInstance.UseItem("pile_of_mess", true);
-            Destroy(gameObject);
+            TeleportPlayer(); //If Door + is Teleporter, Send player to location.
         }
     }
 
@@ -202,11 +182,7 @@ public class TutorialItem : ObjectBase
 
     private void ChangeCamera()
     {
-        //CameraBasicFollow.target = FindObjectOfType<PlayerNavMesh>().transform;
         CameraBasicFollow.changeCamLoc = true;
-        //cam[1].enabled = true;
-        ////TutorialManager.s_cameraInUse = 1;
-        //cam[0].enabled = false;
     }
 
     IEnumerator WaitToHaveAChat()

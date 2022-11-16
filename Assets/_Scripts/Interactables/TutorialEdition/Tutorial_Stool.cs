@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialInteract : ObjectBase
+public class Tutorial_Stool : ObjectBase
 {
-    [Header("Key Collection Settings")]
-    //I exist only to be summoned in front of a bookshelf
-    [SerializeField] private GameObject stoolPrefab;
-    [SerializeField] private Transform stoolPlacement;
-
     private void Awake()
     {
         //Confirm I am Item
@@ -21,7 +16,7 @@ public class TutorialInteract : ObjectBase
 
         if (!TutorialManager.s_leftBedroom)
         {
-                switch (TutorialManager.s_tutorialStage)
+            switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
                     dialogueInstance.getDialogue(4);
@@ -59,24 +54,7 @@ public class TutorialInteract : ObjectBase
                         dialogueInstance.getDialogue(22);
                     }
                     break;
-
-                case 5: //Place Chair on Bookshelf
-                    dialogueInstance.getDialogue(23);
-                    break;
-
-                case 6:
-                    SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[1].inspectPromt);
-                    break;
-
-                case 7:
-
-                    break;
             }
-        }
-        if(row == 3)
-        {
-            inventoryInstance.PickUpItem(name);
-            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -87,7 +65,7 @@ public class TutorialInteract : ObjectBase
         if (!TutorialManager.s_leftBedroom)
         {
 
-                switch (TutorialManager.s_tutorialStage)
+            switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
                     dialogueInstance.getDialogue(4);
@@ -123,41 +101,7 @@ public class TutorialInteract : ObjectBase
                         dialogueInstance.getDialogue(22);
                     }
                     break;
-
-                case 5:
-                    dialogueInstance.getDialogue(23);
-                    break;
-
-                case 6:
-                    SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[1].inspectPromt);
-                    break;
-
-                case 7:
-
-                    break;
             }
-        }
-
-        if(row == 3)
-        {
-            SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[3].inspectPromt);
-        }
-    }
-
-    public override void OnRecieve()
-    {
-        string itemName = inventoryInstance.selectedItem;
-        base.OnRecieve();
-        print(itemName + " was given to " + name);
-
-        base.OnRecieve();
-        if (row == 1 && itemName == "stool")
-        {
-            Instantiate(stoolPrefab, stoolPlacement);
-            inventoryInstance.UseItem("bookshelf", true);
-            ++TutorialManager.s_tutorialStage;
-            //Destroy the key
-            Destroy(gameObject);
         }
     }
 }
