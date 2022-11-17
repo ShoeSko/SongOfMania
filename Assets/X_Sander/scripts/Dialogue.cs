@@ -31,7 +31,7 @@ public class Dialogue : MonoBehaviour
     public int nextLine;
 
     [Header("jucing bools")]
-    public bool startfade;
+    public bool enableAnimation;
 
     [HideInInspector]
     public Texture who;
@@ -50,12 +50,18 @@ public class Dialogue : MonoBehaviour
         namePlateRight.text = "";
         dialogueParent.gameObject.SetActive(false);
 
+
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow) && !inputEnabeld)
         {
             dialogueStart();
+            if (enableAnimation)
+            {
+                animator.ResetTrigger("EndDialogue");
+                animator.enabled = true;
+            }
 
         }
         if (Input.GetMouseButtonDown(0) && isDialogue && inputEnabeld)
@@ -150,9 +156,16 @@ public class Dialogue : MonoBehaviour
         plateLeft.gameObject.SetActive(false);
         if (who != null)
         {
+
             if (whereLeft)
             {
+                if (enableAnimation && FirstPromt)
+                {
+                    animator.SetBool("FadeLeft", true);
+                    animator.SetBool("FadeRight", false);
+                }
                 characterLeft.color = new Color(1f, 1f, 1f);
+                characterLeft.rectTransform.localScale = new Vector3(4f, 6f);
                 characterLeft.gameObject.SetActive(true);
                 plateLeft.gameObject.SetActive(true);
                 namePlateLeft.text = whoName;
@@ -160,7 +173,13 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
+                if (enableAnimation && FirstPromt)
+                {
+                    animator.SetBool("FadeRight", true);
+                    animator.SetBool("FadeLeft", false);
+                }
                 characterRight.color = new Color(1f, 1f, 1f);
+                characterRight.rectTransform.localScale = new Vector3(4f, 6f);
                 characterRight.gameObject.SetActive(true);
                 plateRight.gameObject.SetActive(true);
                 namePlateRight.text = whoName;
@@ -174,6 +193,7 @@ public class Dialogue : MonoBehaviour
             if (whereLeft)
             {
                 characterRight.color = new Color(.2f, .2f, .2f);
+                characterRight.rectTransform.localScale = new Vector3(3.6f, 5.4f);
                 characterRight.texture = otherTexture;
                 characterRight.gameObject.SetActive(true);
                 plateRight.gameObject.SetActive(false);
@@ -181,19 +201,20 @@ public class Dialogue : MonoBehaviour
             else
             {
                 characterLeft.color = new Color(.2f, .2f, .2f);
+                characterLeft.rectTransform.localScale = new Vector3(3.6f, 5.4f);
                 characterLeft.texture = otherTexture;
                 characterLeft.gameObject.SetActive(true);
                 plateLeft.gameObject.SetActive(false);
             }
         }
-
+        
     }
 
     void dialogueStart()
     {
-        inputEnabeld = true;
-        dialogueParent.gameObject.SetActive(true);
-        if (startfade && !FirstPromt)
+        StartCoroutine(DelayBeforeDialogue());
+
+        if (enableAnimation && !FirstPromt)
         {
             //baground fade in
             animator.SetTrigger("StartDialogue");
@@ -202,15 +223,22 @@ public class Dialogue : MonoBehaviour
         else
         {
             getDialogue(nextLine);
-
         }
+        dialogueParent.gameObject.SetActive(true);
     }
     void dialogueFinished()
     {
         inputEnabeld = false;
         animator.SetTrigger("EndDialogue");
+        animator.SetBool("FadeRight", false);
+        animator.SetBool("FadeLeft", false);
         StartCoroutine(DelayAfterDialogue());
         FirstPromt = false;
+    }
+    IEnumerator DelayBeforeDialogue()
+    {
+        yield return new WaitForSeconds(1f);
+        inputEnabeld = true;
     }
     IEnumerator DelayAfterDialogue()
     {
