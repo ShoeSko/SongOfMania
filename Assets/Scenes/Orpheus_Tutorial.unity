@@ -7225,7 +7225,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4133556709840642, guid: c679fdfaafa978d449645e87cdf371f7, type: 3}
   m_PrefabInstance: {fileID: 904009867}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &904009899
+--- !u!114 &904009904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8911,37 +8911,6 @@ Transform:
   - {fileID: 1017431549}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1111708554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1111708555}
-  m_Layer: 0
-  m_Name: Interaction Location
-  m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
-  m_IsActive: 1
---- !u!4 &1111708555
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111708554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0.56, z: 0.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1705881438}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1152770548
 PrefabInstance:
@@ -17741,7 +17710,6 @@ GameObject:
   - component: {fileID: 23153898696292678}
   - component: {fileID: 1433173927}
   - component: {fileID: 33182696287720497}
-  - component: {fileID: 33182696287720498}
   m_Layer: 0
   m_Name: Bedroom Door
   m_TagString: Untagged
@@ -17922,33 +17890,6 @@ MeshFilter:
   m_GameObject: {fileID: 1951512891240430}
   m_Mesh: {fileID: 4300000, guid: b63c59e2675172349a171facb5f7824d, type: 3}
 --- !u!114 &33182696287720497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951512891240430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10db2366cf435174baa7d2aba5641f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  stoolPrefab: {fileID: 0}
-  stoolPlacement: {fileID: 0}
-  isTeleporter: 1
-  changeScene: 0
-  teleportTarget:
-  - {fileID: 1970346541}
-  - {fileID: 1057776636}
-  cam:
-  - {fileID: 749560161}
-  - {fileID: 1326260454}
---- !u!114 &33182696287720498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

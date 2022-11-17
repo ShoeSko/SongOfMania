@@ -52,28 +52,11 @@ public class Tutorial_Key : ObjectBase
                     break;
 
                 case 4: //Pick Up Chair
-                    if (row == 0)
-                    {
-                        inventoryInstance.PickUpItem(name);
-                        ++TutorialManager.s_tutorialStage;
-                        Destroy(gameObject);
-                    }
-                    else
-                    {
-                        dialogueInstance.getDialogue(22);
-                    }
+                    dialogueInstance.getDialogue(22);
                     break;
 
                 case 5: //Place Chair on Bookshelf
                     dialogueInstance.getDialogue(23);
-                    break;
-
-                case 6:
-                    SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[1].inspectPromt);
-                    break;
-
-                case 7:
-
                     break;
             }
         }
@@ -113,26 +96,11 @@ public class Tutorial_Key : ObjectBase
                     break;
 
                 case 4: //Pick Up Chair
-                    if (row == 0)
-                    {
-                        SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[0].inspectPromt);
-                    }
-                    else
-                    {
-                        dialogueInstance.getDialogue(22);
-                    }
+                    dialogueInstance.getDialogue(22);
                     break;
 
                 case 5:
                     dialogueInstance.getDialogue(23);
-                    break;
-
-                case 6:
-                    SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[1].inspectPromt);
-                    break;
-
-                case 7:
-
                     break;
             }
         }

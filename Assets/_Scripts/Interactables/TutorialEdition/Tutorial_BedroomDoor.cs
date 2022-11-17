@@ -71,15 +71,6 @@ public class Tutorial_BedroomDoor : ObjectBase
                     break;
             }
         }
-
-        if (row == 3)
-        {
-            SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[3].inspectPromt);
-        }
-        if (row == 4 && TutorialManager.s_finishedTutorial)
-        {
-            TeleportPlayer();
-        }
     }
 
     public override void OnInspect()
@@ -125,19 +116,8 @@ public class Tutorial_BedroomDoor : ObjectBase
                 case 6:
                     SpokenDisplay.ShowDisplaySpoken_Static(itemInstance.myItemList.item[1].inspectPromt);
                     break;
-
-                case 7:
-
-                    break;
             }
         }
-        if (row == 3)
-        {
-            //Pile Inspect
-            SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[3].inspectPromt);
-        }
-
-
     }
 
     public override void OnRecieve()

@@ -31,15 +31,7 @@ public class Tutorial_Stool : ObjectBase
                     break;
 
                 case 3: //Find Key
-                    if (row == 1)
-                    {
-                        dialogueInstance.getDialogue(16);
-                        ++TutorialManager.s_tutorialStage;
-                    }
-                    else
-                    {
-                        dialogueInstance.getDialogue(15);
-                    }
+                    dialogueInstance.getDialogue(15);
                     break;
 
                 case 4: //Pick Up Chair
@@ -80,15 +72,7 @@ public class Tutorial_Stool : ObjectBase
                     break;
 
                 case 3: //Find Key
-                    if (row == 1)
-                    {
-                        dialogueInstance.getDialogue(16);
-                        ++TutorialManager.s_tutorialStage;
-                    }
-                    else
-                    {
-                        dialogueInstance.getDialogue(15);
-                    }
+                    dialogueInstance.getDialogue(15);
                     break;
 
                 case 4: //Pick Up Chair
