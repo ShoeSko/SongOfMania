@@ -92,6 +92,14 @@ public class ObjectBase : MonoBehaviour
     {
         print(TutorialManager.s_tutorialStage);
 
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    TutorialManager.s_tutorialStage = 3;
+        //}
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    TutorialManager.s_tutorialStage = 5;
+        //}
         HighlightInteractable();
 
         PlayerNearActivate();

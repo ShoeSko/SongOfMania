@@ -23,6 +23,7 @@ public class TutoInteract : ObjectBase
 
     }
 
+
     public override void OnActivate()
     {
         print("Triggered");
@@ -42,6 +43,7 @@ public class TutoInteract : ObjectBase
             case 2:
                 if (row == 0)
                 {
+                    print("now playing 11");
                     dialogueInstance.getDialogue(11);
                     ++TutorialManager.s_tutorialStage;
                 }

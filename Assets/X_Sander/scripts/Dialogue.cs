@@ -11,10 +11,12 @@ public class Dialogue : MonoBehaviour
     public Texture characterUnknown;
     public RawImage characterRight;
     public RawImage characterLeft;
+    public RawImage baground;
 
     public GameObject plateRight;
     public GameObject plateLeft;
 
+    public Animator animator;
 
     public TMP_Text displayText;
     public TMP_Text namePlateRight;
@@ -23,8 +25,14 @@ public class Dialogue : MonoBehaviour
     public GameObject TSVreader;
 
     public static bool isDialogue = false;
+    bool FirstPromt;
+    public bool inputEnabeld;
 
     public int nextLine;
+
+    [Header("jucing bools")]
+    public bool startfade;
+
     [HideInInspector]
     public Texture who;
     [HideInInspector]
@@ -45,7 +53,12 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetMouseButtonDown(0) && isDialogue)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !inputEnabeld)
+        {
+            dialogueStart();
+
+        }
+        if (Input.GetMouseButtonDown(0) && isDialogue && inputEnabeld)
         {
             getDialogue(nextLine);
         }
@@ -53,7 +66,7 @@ public class Dialogue : MonoBehaviour
 
     public void getDialogue(int readLine)
     {
-        
+
         otherTexture = null;
         if (readLine > -1)
         {
@@ -130,7 +143,7 @@ public class Dialogue : MonoBehaviour
     //change image color based on who is talking; true == Left, false == right.
     void displayImage()
     {
-
+        FirstPromt = true;
         characterLeft.gameObject.SetActive(false);
         characterRight.gameObject.SetActive(false);
         plateRight.gameObject.SetActive(false);
@@ -178,17 +191,32 @@ public class Dialogue : MonoBehaviour
 
     void dialogueStart()
     {
+        inputEnabeld = true;
         dialogueParent.gameObject.SetActive(true);
+        if (startfade && !FirstPromt)
+        {
+            //baground fade in
+            animator.SetTrigger("StartDialogue");
+            getDialogue(nextLine);
+        }
+        else
+        {
+            getDialogue(nextLine);
+
+        }
     }
     void dialogueFinished()
     {
+        inputEnabeld = false;
+        animator.SetTrigger("EndDialogue");
         StartCoroutine(DelayAfterDialogue());
-        dialogueParent.gameObject.SetActive(false);
+        FirstPromt = false;
     }
     IEnumerator DelayAfterDialogue()
     {
         //Delay to prevent movement when finishing dialogue
         yield return new WaitForSeconds(.5f);
+        dialogueParent.gameObject.SetActive(false);
         isDialogue = false;
     }
 }
