@@ -155,7 +155,8 @@ public class Tutorial_BedroomDoor : ObjectBase
                 ChangeCamera();
                 TutorialManager.s_leftBedroom = true;
                 StartCoroutine(WaitToHaveAChat());
-                this.GetComponent<TutorialItem>().enabled = false;
+
+                //this.GetComponent<TutorialItem>().enabled = false;
             }
         }
     }

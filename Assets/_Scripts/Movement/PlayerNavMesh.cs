@@ -75,11 +75,13 @@ public class PlayerNavMesh : MonoBehaviour
         }
         if (playerNavAgent.velocity != Vector3.zero)
         {
-            GetComponentInChildren<Animator>().enabled = true;
+            //GetComponentInChildren<Animator>().enabled = true;
+            GetComponentInChildren<Animator>().SetBool("Moving", true);
         }
         else
         {
-            GetComponentInChildren<Animator>().enabled = false;
+            //GetComponentInChildren<Animator>().enabled = false;
+            GetComponentInChildren<Animator>().SetBool("Moving", false);
         }
     }
 }
