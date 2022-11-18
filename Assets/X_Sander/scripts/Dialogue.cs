@@ -32,6 +32,7 @@ public class Dialogue : MonoBehaviour
 
     [Header("jucing bools")]
     public bool enableAnimation;
+    public bool enableTypewriter;
 
     [HideInInspector]
     public Texture who;
@@ -76,9 +77,11 @@ public class Dialogue : MonoBehaviour
         otherTexture = null;
         if (readLine > -1)
         {
+            string incomingText = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].promt;
+
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
-            displayText.text = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].promt;
+
             switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].who)
             {
                 case "Orpheus":
@@ -128,14 +131,43 @@ public class Dialogue : MonoBehaviour
                     otherTexture = null;
                     break;
             }
-            if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
+
+            if (!enableTypewriter)
             {
-                nextLine = -1;
+                displayText.text = incomingText;
+
+                if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
+                {
+                    nextLine = -1;
+                }
+                else
+                {
+                    nextLine = readLine + 1;
+                }
             }
             else
             {
-                nextLine = readLine + 1;
+
+                if (GetComponent<typeWriterUi>().isGoing)
+                {
+                    GetComponent<typeWriterUi>().charIndex = incomingText.Length;
+                    displayText.text = incomingText;
+
+                    if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
+                    {
+                        nextLine = -1;
+                    }
+                    else
+                    {
+                        nextLine = readLine + 1;
+                    }
+                }
+                else
+                {
+                    GetComponent<typeWriterUi>().run(incomingText, displayText);
+                }
             }
+
             displayImage();
         }
         else
@@ -207,7 +239,7 @@ public class Dialogue : MonoBehaviour
                 plateLeft.gameObject.SetActive(false);
             }
         }
-        
+
     }
 
     void dialogueStart()
