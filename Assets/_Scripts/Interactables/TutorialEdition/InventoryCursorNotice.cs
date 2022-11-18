@@ -7,16 +7,12 @@ public class InventoryCursorNotice : MonoBehaviour
     public static bool s_hoveringOverInventory;
 
     #region Prevent Inventory + Movement Clash
-    private void OnMouseEnter()
+    public void CursorOverInventory()
     {
         s_hoveringOverInventory = true;
-        Debug.Log("Entered Inventory");
-    }
-    private void OnMouseOver()
-    {
         Debug.Log("Over Inventory");
     }
-    private void OnMouseExit()
+    public void CursorLeftInventory()
     {
         s_hoveringOverInventory = false;
         Debug.Log("Left Inventory");
