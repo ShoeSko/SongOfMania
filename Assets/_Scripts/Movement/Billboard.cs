@@ -25,13 +25,13 @@ public class Billboard : MonoBehaviour
     {
         cam = Camera.main;
 
-        if (useBillboard)
+        if (useBillboard && JuiceToggle.s_juiceBillboard)
         {
             Billboarding();
         }
         else
         {
-            transform.LookAt(cam.transform);
+            //Do nothing!
         }
     }
 

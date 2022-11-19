@@ -14,8 +14,10 @@ public class PlayerNavMesh : MonoBehaviour
     [SerializeField] private Camera cam;
 
     public GameObject targetDestination;
+    [SerializeField]private ParticleSystem pointLocationParticle;
 
-    public Vector3 movingment;
+    public Vector3 movingment; //Is this still used?
+
 
     public static bool s_reachedLocation;
     public static int s_timesMoved;
@@ -33,7 +35,11 @@ public class PlayerNavMesh : MonoBehaviour
             PlayerClick();
         }
 
-        IsPlayerWalking();
+        if (JuiceToggle.s_juiceMovementAnime)
+        {
+            //Only use animation if Juice toggle is True
+            IsPlayerWalking();
+        }
     }
 
     private void PlayerClick()
@@ -42,7 +48,10 @@ public class PlayerNavMesh : MonoBehaviour
         {
             //Allow movement elsewhere, but has set movement to wanted locaiton
             ObjectBase.s_objectInstance.clickedObject = false;
-            targetDestination.transform.position = ObjectBase.s_objectInstance.interactLocation.position;
+            if (JuiceToggle.s_clickIndicator)
+            {
+                CursorClickIndicator(ObjectBase.s_objectInstance.interactLocation.position);
+            }
             playerNavAgent.SetDestination(ObjectBase.s_objectInstance.interactLocation.position);
             s_timesMoved++;
         }
@@ -54,14 +63,23 @@ public class PlayerNavMesh : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitPoint))
             {
-                targetDestination.transform.position = hitPoint.point;
+                if (JuiceToggle.s_clickIndicator)
+                {
+                    CursorClickIndicator(hitPoint.point);
+                }
                 playerNavAgent.SetDestination(hitPoint.point);
             }
             s_timesMoved++;
         }
     }
 
-
+    private void CursorClickIndicator(Vector3 location)
+    {
+        //Set the TargetLocation gameobject in the right spot
+        targetDestination.transform.position = location;
+        //Play the particle Event
+        pointLocationParticle.Play();
+    }
 
     private void IsPlayerWalking()
     {
