@@ -271,4 +271,10 @@ public class ObjectBase : MonoBehaviour
         //Hide the Name displayed when no longer hovering.
         NameDisplay.HideDisplayName_Static();
     }
+
+    private void OnDestroy()
+    {
+        //Hide the Name displayed when no longer existing.
+        NameDisplay.HideDisplayName_Static();
+    }
 }
