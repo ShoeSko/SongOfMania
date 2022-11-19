@@ -21,6 +21,10 @@ public class PlayerNavMesh : MonoBehaviour
 
     public static bool s_reachedLocation;
     public static int s_timesMoved;
+
+    //This bool will switch what kind of interaction the objectbase takes.
+    bool selectedAnInteractable = false;
+
     private void Awake()
     {
         playerNavAgent = GetComponent<NavMeshAgent>();
@@ -35,6 +39,14 @@ public class PlayerNavMesh : MonoBehaviour
             PlayerClick();
         }
 
+        if (Input.GetMouseButtonUp(0) && selectedAnInteractable)
+        {
+            //Reset this value that prevents mutli input
+            selectedAnInteractable = false;
+            print("My job");
+        }
+        Debug.Log(selectedAnInteractable);
+
         if (JuiceToggle.s_juiceMovementAnime)
         {
             //Only use animation if Juice toggle is True
@@ -44,7 +56,9 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void PlayerClick()
     {
-        if (Input.GetMouseButton(0) && ObjectBase.s_objectInstance.clickedObject)
+
+
+        if (Input.GetMouseButtonDown(0) && ObjectBase.s_objectInstance.clickedObject)
         {
             //Allow movement elsewhere, but has set movement to wanted locaiton
             ObjectBase.s_objectInstance.clickedObject = false;
@@ -54,8 +68,9 @@ public class PlayerNavMesh : MonoBehaviour
             }
             playerNavAgent.SetDestination(ObjectBase.s_objectInstance.interactLocation.position);
             s_timesMoved++;
+            selectedAnInteractable = true; //Interactable has been selected.
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) && !selectedAnInteractable)
         {
             cam = Camera.main;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

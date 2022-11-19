@@ -11,6 +11,7 @@ public class JuiceToggle : MonoBehaviour
     //Movement Animation
     public static bool s_juiceMovementAnime = true;
     //Audio
+
     //Cursor Click location
     public static bool s_clickIndicator = true;
 

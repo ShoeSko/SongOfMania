@@ -252,7 +252,7 @@ public class ObjectBase : MonoBehaviour
             {
                 ApproachOnClick();
             }
-            else if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButtonDown(0))
             {
                 ApproachOnClick();
             }
