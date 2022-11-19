@@ -62,7 +62,7 @@ public class PlayerNavMesh : MonoBehaviour
         {
             //Allow movement elsewhere, but has set movement to wanted locaiton
             ObjectBase.s_objectInstance.clickedObject = false;
-            if (JuiceToggle.s_clickIndicator)
+            if (JuiceToggle.s_juiceClickIndicator)
             {
                 CursorClickIndicator(ObjectBase.s_objectInstance.interactLocation.position);
             }
@@ -78,7 +78,7 @@ public class PlayerNavMesh : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitPoint))
             {
-                if (JuiceToggle.s_clickIndicator)
+                if (JuiceToggle.s_juiceClickIndicator)
                 {
                     CursorClickIndicator(hitPoint.point);
                 }
