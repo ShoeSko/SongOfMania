@@ -22,6 +22,7 @@ public class VolumeManager : MonoBehaviour
             PlayerPrefs.SetFloat("MasterVolume", 1f); //Value to be changed
             PlayerPrefs.SetFloat("MusicVolume", 1f); //Value to be changed
             PlayerPrefs.SetFloat("SFXVolume", 1f); //Value to be changed
+            PlayerPrefs.SetFloat("VocalVolume", 1f); //Value to be changed
 
             //Save new settings
             PlayerPrefs.Save();
@@ -35,6 +36,7 @@ public class VolumeManager : MonoBehaviour
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("MasterVolume")) * 20);
         masterMixer.SetFloat("MusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume")) * 20);
         masterMixer.SetFloat("SFXVolume", Mathf.Log10(PlayerPrefs.GetFloat("SFXVolume")) * 20);
+        masterMixer.SetFloat("VocalVolume", Mathf.Log10(PlayerPrefs.GetFloat("VocalVolume")) * 20);
     }
 
     public void SetMasterVolume(float sliderValue)
@@ -58,4 +60,10 @@ public class VolumeManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", sliderValue);
     }
 
+    public void SetVocalVolume(float sliderValue)
+    {
+        //Adjust volume in a logarithmic scale.
+        masterMixer.SetFloat("VocalVolume", Mathf.Log10(sliderValue) * 20);
+        PlayerPrefs.SetFloat("VocalVolume", sliderValue);
+    }
 }
