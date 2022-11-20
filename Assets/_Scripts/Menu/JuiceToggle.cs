@@ -9,6 +9,7 @@ public class JuiceToggle : MonoBehaviour
     //1 Billboard (First Static, second for button adjustments)
     public static bool s_juiceBillboard = true;
     private bool juiceBillboard = true;
+
     //2Dialogue Typewriter
     private bool juiceEnableAnimation = true;
 
@@ -39,13 +40,17 @@ public class JuiceToggle : MonoBehaviour
     public static bool s_juiceHighlight = true;
     private bool juiceHighlight = true;
 
-
+    [SerializeField] private List<Toggle> toggleList = new List<Toggle>();
+    private List<bool> toggleState = new List<bool>(9);
 
     [Header("Button setting")]
     [SerializeField] private Button applyButton;
     private bool changesToApply;
 
-
+    private void Awake()
+    {
+        TickBockReader();
+    }
     private void Start()
     {
         //Keep Apply Button off before changes.
@@ -55,9 +60,24 @@ public class JuiceToggle : MonoBehaviour
         TickBoxSetup();
     }
 
+    private void TickBockReader()
+    {
+        toggleState[0] = s_juiceBillboard;
+        toggleState[1] = Dialogue.enableTypewriter;
+        toggleState[2] = Dialogue.enableAnimation;
+        toggleState[3] = s_juiceMovementAnime;
+        toggleState[4] = s_juiceSFX;
+        toggleState[5] = s_juiceNameDisplay;
+        toggleState[6] = s_juiceSpokenDisplay;
+        toggleState[7] = s_juiceClickIndicator;
+        toggleState[8] = s_juiceHighlight;
+    }
     private void TickBoxSetup()
     {
-
+        for (int i = 0; i < toggleList.Count; i++)
+        {
+            toggleList[i].isOn = toggleState[i];
+        }
     }
 
     public void TurnOnOffJuice(int chosenJuice)
