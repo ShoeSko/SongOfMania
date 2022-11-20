@@ -4257,9 +4257,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2034674784120967889, guid: 37c70ff2c60185245bc5b806399b0787, type: 3}
+      propertyPath: enableAnimation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2034674784120967903, guid: 37c70ff2c60185245bc5b806399b0787, type: 3}
       propertyPath: m_Name
       value: DIaloguetest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558814009462258421, guid: 37c70ff2c60185245bc5b806399b0787, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37c70ff2c60185245bc5b806399b0787, type: 3}

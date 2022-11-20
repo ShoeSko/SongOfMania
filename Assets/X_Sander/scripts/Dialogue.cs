@@ -33,6 +33,7 @@ public class Dialogue : MonoBehaviour
     [Header("jucing bools")]
     public static bool enableAnimation = true;
     public static bool enableTypewriter = true;
+    public static bool enableVO = true;
 
     [HideInInspector]
     public Texture who;
@@ -61,7 +62,7 @@ public class Dialogue : MonoBehaviour
             if (enableAnimation)
             {
                 animator.ResetTrigger("EndDialogue");
-                animator.enabled = true;
+
             }
 
         }
@@ -79,7 +80,11 @@ public class Dialogue : MonoBehaviour
         {
             var TSV = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine];
             string incomingText = TSV.promt;
+            if (enableVO)
+            {
+                GetComponent<audioLibrary>().playAduio(TSV.who, TSV.audioEmotion);
 
+            }
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
 
@@ -251,12 +256,14 @@ public class Dialogue : MonoBehaviour
 
         if (enableAnimation && !FirstPromt)
         {
+            GetComponent<Animator>().enabled = true;
             //baground fade in
             animator.SetTrigger("StartDialogue");
             getDialogue(nextLine);
         }
         else
         {
+            GetComponent<Animator>().enabled = false;
             getDialogue(nextLine);
         }
         dialogueParent.gameObject.SetActive(true);
