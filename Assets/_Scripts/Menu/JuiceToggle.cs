@@ -10,10 +10,10 @@ public class JuiceToggle : MonoBehaviour
     public static bool s_juiceBillboard = true;
     private bool juiceBillboard = true;
     //2Dialogue Typewriter
-    private bool juiceEnableAnimation;
+    private bool juiceEnableAnimation = true;
 
     //3Dialogue Animation
-    private bool juiceEnableTypewriter;
+    private bool juiceEnableTypewriter = true;
 
     //4 Movement Animation
     public static bool s_juiceMovementAnime = true;
@@ -21,15 +21,15 @@ public class JuiceToggle : MonoBehaviour
 
     //5 Audio
     public static bool s_juiceSFX = true;
-    private bool juiceSFX;
+    private bool juiceSFX = true;
 
     //6 Name Display
     public static bool s_juiceNameDisplay = true;
-    private bool juiceNameDisplay;
+    private bool juiceNameDisplay = true;
 
     //7 Spoken Display
     public static bool s_juiceSpokenDisplay = true;
-    private bool juiceSpokenDisplay;
+    private bool juiceSpokenDisplay = true;
 
     //8 Cursor Click location
     public static bool s_juiceClickIndicator = true;
@@ -37,7 +37,7 @@ public class JuiceToggle : MonoBehaviour
 
     //9 Highilight Objects
     public static bool s_juiceHighlight = true;
-    private bool juiceHighlight;
+    private bool juiceHighlight = true;
 
 
 

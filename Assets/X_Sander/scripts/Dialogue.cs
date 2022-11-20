@@ -31,8 +31,8 @@ public class Dialogue : MonoBehaviour
     public int nextLine;
 
     [Header("jucing bools")]
-    public static bool enableAnimation;
-    public static bool enableTypewriter;
+    public static bool enableAnimation = true;
+    public static bool enableTypewriter = true;
 
     [HideInInspector]
     public Texture who;
