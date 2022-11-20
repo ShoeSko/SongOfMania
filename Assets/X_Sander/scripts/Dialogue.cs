@@ -80,7 +80,7 @@ public class Dialogue : MonoBehaviour
         {
             var TSV = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine];
             string incomingText = TSV.promt;
-            if (enableVO)
+            if (JuiceToggle.s_juiceSFX)
             {
                 GetComponent<audioLibrary>().playAduio(TSV.who, TSV.audioEmotion);
 
