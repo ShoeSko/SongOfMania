@@ -11,6 +11,8 @@ public class Tutorial_Rake : ObjectBase
     {
         //Confirm I am Item
         isItem = true;
+
+
     }
 
     public override void OnActivate()

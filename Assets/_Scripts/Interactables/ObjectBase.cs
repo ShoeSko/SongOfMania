@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 //It is a must that an interactable has a collider
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider), typeof(AudioSource))]
 public class ObjectBase : MonoBehaviour
 {
     [Header("SpreadSheet")]
@@ -19,6 +20,7 @@ public class ObjectBase : MonoBehaviour
     public itemCSVreader itemInstance { get; protected set; }
     public interactableCSVreader interactableInstace { get; protected set; }
     public Inventory_Items inventoryInstance { get; protected set; }
+    public AudioSource audioSource { get; protected set; }
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
@@ -33,14 +35,15 @@ public class ObjectBase : MonoBehaviour
     //In theory this one will be needed for Recieve as well. Make seperate function perhaps?
     [HideInInspector] public bool clickedObject;
 
-
     private void Start()
     {
         //To prevent that there is no instance of ObjectClass set. (May cause future issues
         s_objectInstance = this;
 
+        //Grab Audio source and give it the correct Mixers SFX
+        SetUpAudioSource();
 
-        if(!isNPC)
+        if (!isNPC)
         {
             //Store current material for end of highligh
             if (GetComponent<MeshRenderer>())
@@ -65,6 +68,17 @@ public class ObjectBase : MonoBehaviour
 
 
         StartCoroutine(WaitForInformation());
+    }
+
+    private void SetUpAudioSource()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        AudioMixer audioMixer = Resources.Load("Master", typeof(AudioMixer)) as AudioMixer;
+
+        AudioMixerGroup[] audioMixerGroup = audioMixer.FindMatchingGroups("Master");
+
+        audioSource.outputAudioMixerGroup = audioMixerGroup[2];
     }
 
     IEnumerator WaitForInformation()
