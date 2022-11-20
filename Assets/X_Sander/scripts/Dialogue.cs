@@ -57,7 +57,7 @@ public class Dialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow) && !inputEnabeld)
         {
-            dialogueStart();
+            dialogueStart(nextLine);
             if (enableAnimation)
             {
                 animator.ResetTrigger("EndDialogue");
@@ -242,8 +242,9 @@ public class Dialogue : MonoBehaviour
 
     }
 
-    void dialogueStart()
+    public void dialogueStart(int readline)
     {
+        nextLine = readline;
         StartCoroutine(DelayBeforeDialogue());
 
         if (enableAnimation && !FirstPromt)
@@ -269,8 +270,8 @@ public class Dialogue : MonoBehaviour
     }
     IEnumerator DelayBeforeDialogue()
     {
-        yield return new WaitForSeconds(1f);
         inputEnabeld = true;
+        yield return new WaitForSeconds(1f);
     }
     IEnumerator DelayAfterDialogue()
     {
