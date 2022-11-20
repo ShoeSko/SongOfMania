@@ -31,8 +31,8 @@ public class Dialogue : MonoBehaviour
     public int nextLine;
 
     [Header("jucing bools")]
-    public bool enableAnimation;
-    public bool enableTypewriter;
+    public static bool enableAnimation;
+    public static bool enableTypewriter;
 
     [HideInInspector]
     public Texture who;
@@ -77,12 +77,13 @@ public class Dialogue : MonoBehaviour
         otherTexture = null;
         if (readLine > -1)
         {
-            string incomingText = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].promt;
+            var TSV = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine];
+            string incomingText = TSV.promt;
 
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
 
-            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].who)
+            switch (TSV.who)
             {
                 case "Orpheus":
                     whoName = "Orpheus";
@@ -102,7 +103,7 @@ public class Dialogue : MonoBehaviour
                 default:
                     break;
             }
-            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].Position)
+            switch (TSV.Position)
             {
                 case "L":
                     whereLeft = true;
@@ -113,7 +114,8 @@ public class Dialogue : MonoBehaviour
                 default:
                     break;
             }
-            switch (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].partner)
+
+            switch (TSV.partner)
             {
                 case "Orpheus":
                     otherTexture = characterOrpheus;
@@ -136,7 +138,7 @@ public class Dialogue : MonoBehaviour
             {
                 displayText.text = incomingText;
 
-                if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
+                if (TSV.next == 0)
                 {
                     nextLine = -1;
                 }
