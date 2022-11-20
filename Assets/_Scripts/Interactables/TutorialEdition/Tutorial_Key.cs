@@ -28,35 +28,35 @@ public class Tutorial_Key : ObjectBase
             switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
-                    dialogueInstance.getDialogue(4);
+                    dialogueInstance.dialogueStart(4);
                     break;
 
                 case 1:
-                    dialogueInstance.getDialogue(7);
+                    dialogueInstance.dialogueStart(7);
                     break;
 
                 case 2:
-                    dialogueInstance.getDialogue(10);
+                    dialogueInstance.dialogueStart(10);
                     break;
 
                 case 3: //Find Key
                     if (row == 1)
                     {
-                        dialogueInstance.getDialogue(16);
+                        dialogueInstance.dialogueStart(16);
                         ++TutorialManager.s_tutorialStage;
                     }
                     else
                     {
-                        dialogueInstance.getDialogue(15);
+                        dialogueInstance.dialogueStart(15);
                     }
                     break;
 
                 case 4: //Pick Up Chair
-                    dialogueInstance.getDialogue(22);
+                    dialogueInstance.dialogueStart(22);
                     break;
 
                 case 5: //Place Chair on Bookshelf
-                    dialogueInstance.getDialogue(23);
+                    dialogueInstance.dialogueStart(23);
                     break;
             }
         }
@@ -72,35 +72,35 @@ public class Tutorial_Key : ObjectBase
             switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
-                    dialogueInstance.getDialogue(4);
+                    dialogueInstance.dialogueStart(4);
                     break;
 
                 case 1:
-                    dialogueInstance.getDialogue(7);
+                    dialogueInstance.dialogueStart(7);
                     break;
 
                 case 2:
-                    dialogueInstance.getDialogue(10);
+                    dialogueInstance.dialogueStart(10);
                     break;
 
                 case 3: //Find Key
                     if (row == 1)
                     {
-                        dialogueInstance.getDialogue(16);
+                        dialogueInstance.dialogueStart(16);
                         ++TutorialManager.s_tutorialStage;
                     }
                     else
                     {
-                        dialogueInstance.getDialogue(15);
+                        dialogueInstance.dialogueStart(15);
                     }
                     break;
 
                 case 4: //Pick Up Chair
-                    dialogueInstance.getDialogue(22);
+                    dialogueInstance.dialogueStart(22);
                     break;
 
                 case 5:
-                    dialogueInstance.getDialogue(23);
+                    dialogueInstance.dialogueStart(23);
                     break;
             }
         }

@@ -157,7 +157,7 @@ public class ObjectBase : MonoBehaviour
 
         if (activate)
         {
-            //print("is active");
+            print("is active");
             Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
             for (int i = 0; i < locatePlayer.Length; i++)
             {

@@ -27,36 +27,36 @@ public class Tutorial_BedroomDoor : ObjectBase
             switch (TutorialManager.s_tutorialStage)
             {
                 case 0:
-                    dialogueInstance.getDialogue(4);
+                    dialogueInstance.dialogueStart(4);
                     break;
 
                 case 1:
-                    dialogueInstance.getDialogue(7);
+                    dialogueInstance.dialogueStart(7);
                     break;
 
                 case 2:
                     if (row == 0)
                     {
-                        dialogueInstance.getDialogue(11);
+                        dialogueInstance.dialogueStart(11);
                         ++TutorialManager.s_tutorialStage;
                     }
                     else
                     {
-                        dialogueInstance.getDialogue(10);
+                        dialogueInstance.dialogueStart(10);
                     }
                     break;
 
                 case 3:
-                    dialogueInstance.getDialogue(15);
+                    dialogueInstance.dialogueStart(15);
                     break;
 
                 case 4:
-                    dialogueInstance.getDialogue(22);
+                    dialogueInstance.dialogueStart(22);
                     break;
 
                 case 5: //Recieve chair
 
-                    dialogueInstance.getDialogue(23);
+                    dialogueInstance.dialogueStart(23);
                     break;
 
                 case 6: //Key on Door
@@ -82,35 +82,35 @@ public class Tutorial_BedroomDoor : ObjectBase
             switch (TutorialManager.s_tutorialStage)
             {
                 case 0: //You should move
-                    dialogueInstance.getDialogue(4);
+                    dialogueInstance.dialogueStart(4);
                     break;
 
                 case 1: //Inspect Door
                     if (row == 0)
                     {
-                        dialogueInstance.getDialogue(8);
+                        dialogueInstance.dialogueStart(8);
                         ++TutorialManager.s_tutorialStage;
                     }
                     else
                     {
-                        dialogueInstance.getDialogue(7);
+                        dialogueInstance.dialogueStart(7);
                     }
                     break;
 
                 case 2: //Use Door
-                    dialogueInstance.getDialogue(10);
+                    dialogueInstance.dialogueStart(10);
                     break;
 
                 case 3: //Find Key
-                    dialogueInstance.getDialogue(15);
+                    dialogueInstance.dialogueStart(15);
                     break;
 
                 case 4: //Pick Up Chair
-                    dialogueInstance.getDialogue(22);
+                    dialogueInstance.dialogueStart(22);
                     break;
 
                 case 5: //Chair on Bookshelf
-                    dialogueInstance.getDialogue(23);
+                    dialogueInstance.dialogueStart(23);
                     break;
 
                 case 6:
@@ -169,7 +169,7 @@ public class Tutorial_BedroomDoor : ObjectBase
     IEnumerator WaitToHaveAChat()
     {
         yield return new WaitForSeconds(0.5f);
-        dialogueInstance.getDialogue(27);
+        dialogueInstance.dialogueStart(27);
         inventoryInstance.PickUpItem("broken_lyre");
     }
 }

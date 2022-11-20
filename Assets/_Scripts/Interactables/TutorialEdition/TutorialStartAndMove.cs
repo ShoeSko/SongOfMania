@@ -19,7 +19,7 @@ public class TutorialStartAndMove : MonoBehaviour
     IEnumerator StartTheTalk()
     {
         yield return new WaitForEndOfFrame();
-        dialogueInstance.getDialogue(1);
+        dialogueInstance.dialogueStart(1);
     }
 
     private void Update()
@@ -36,6 +36,6 @@ public class TutorialStartAndMove : MonoBehaviour
     {
         hasActivated = true;
         yield return new WaitForSeconds(walkTimeNeeded);
-        dialogueInstance.getDialogue(5);
+        dialogueInstance.dialogueStart(5);
     }
 }

@@ -34,7 +34,7 @@ public class NPCBase : ObjectBase
         {
             inventoryInstance.UseItem("orpheus", false);
             //This one dialogue bit needs fixing later.
-            dialogueInstance.getDialogue(45);
+            dialogueInstance.dialogueStart(44);
             TutorialManager.s_finishedTutorial = true;
         }
     }

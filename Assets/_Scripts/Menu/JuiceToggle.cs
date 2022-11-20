@@ -9,24 +9,36 @@ public class JuiceToggle : MonoBehaviour
     //1 Billboard (First Static, second for button adjustments)
     public static bool s_juiceBillboard = true;
     private bool juiceBillboard = true;
-    //Dialogue (Speed?)
-    //Dialogue (Animations?)
+    //2Dialogue Typewriter
+    private bool juiceEnableAnimation;
+
+    //3Dialogue Animation
+    private bool juiceEnableTypewriter;
+
     //4 Movement Animation
     public static bool s_juiceMovementAnime = true;
     private bool juiceMovementAnim = true;
-    //Audio
+
+    //5 Audio
+    public static bool s_juiceSFX = true;
+    private bool juiceSFX;
 
     //6 Name Display
-    public static bool s_juiceNameDisplay;
+    public static bool s_juiceNameDisplay = true;
     private bool juiceNameDisplay;
 
     //7 Spoken Display
-    public static bool s_juiceSpokenDisplay;
+    public static bool s_juiceSpokenDisplay = true;
     private bool juiceSpokenDisplay;
 
     //8 Cursor Click location
     public static bool s_juiceClickIndicator = true;
     private bool juiceClickIndicator = true;
+
+    //9 Highilight Objects
+    public static bool s_juiceHighlight = true;
+    private bool juiceHighlight;
+
 
 
     [Header("Button setting")]
@@ -56,8 +68,20 @@ public class JuiceToggle : MonoBehaviour
                 juiceBillboard = !juiceBillboard;
                 break;
 
+            case 2:
+                juiceEnableTypewriter = !juiceEnableTypewriter;
+                break;
+
+            case 3:
+                juiceEnableAnimation = !juiceEnableAnimation;
+                break;
+
             case 4:
                 juiceMovementAnim = !juiceMovementAnim;
+                break;
+
+            case 5:
+                juiceSFX = !juiceSFX;
                 break;
 
             case 6:
@@ -70,6 +94,10 @@ public class JuiceToggle : MonoBehaviour
 
             case 8:
                 juiceClickIndicator = !juiceClickIndicator;
+                break;
+
+            case 9:
+                juiceHighlight = !juiceHighlight;
                 break;
         }
         changesToApply = true;
@@ -89,13 +117,21 @@ public class JuiceToggle : MonoBehaviour
     {
         s_juiceBillboard = juiceBillboard; //1
 
+        Dialogue.enableTypewriter = juiceEnableTypewriter; //2
+
+        Dialogue.enableAnimation = juiceEnableAnimation; //3
+
         s_juiceMovementAnime = juiceMovementAnim; //4
+
+        s_juiceSFX = juiceSFX; //5
 
         s_juiceNameDisplay = juiceNameDisplay; //6
 
         s_juiceSpokenDisplay = juiceSpokenDisplay; //7
 
         s_juiceClickIndicator = juiceClickIndicator; //8
+
+        s_juiceHighlight = juiceHighlight; //9
 
 
         applyButton.interactable = false;
