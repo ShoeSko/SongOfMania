@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -375}
+  m_AnchoredPosition: {x: 0, y: -388}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249520661
@@ -985,6 +985,7 @@ MonoBehaviour:
   juiceBillboard: 1
   juiceMovementAnim: 1
   juiceClickIndicator: 1
+  applyButton: {fileID: 249520661}
 --- !u!114 &1007930457
 MonoBehaviour:
   m_ObjectHideFlags: 0

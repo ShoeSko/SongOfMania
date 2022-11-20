@@ -45,7 +45,7 @@ public class SpokenDisplay : MonoBehaviour
     public static void ShowDisplaySpoken_Static(string spokenText)
     {
         //IF there is no Dialogue displaying
-        if (!Dialogue.isDialogue)
+        if (!Dialogue.isDialogue && JuiceToggle.s_juiceSpokenDisplay)
         {
             //To give better reference
             TextMeshProUGUI nameText = s_spokenDisplay.textName;

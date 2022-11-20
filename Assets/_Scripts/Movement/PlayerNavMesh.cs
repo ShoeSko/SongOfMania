@@ -43,9 +43,8 @@ public class PlayerNavMesh : MonoBehaviour
         {
             //Reset this value that prevents mutli input
             selectedAnInteractable = false;
-            print("My job");
         }
-        Debug.Log(selectedAnInteractable);
+        //Debug.Log(selectedAnInteractable);
 
         if (JuiceToggle.s_juiceMovementAnime)
         {
@@ -56,8 +55,6 @@ public class PlayerNavMesh : MonoBehaviour
 
     private void PlayerClick()
     {
-
-
         if (Input.GetMouseButtonDown(0) && ObjectBase.s_objectInstance.clickedObject)
         {
             //Allow movement elsewhere, but has set movement to wanted locaiton

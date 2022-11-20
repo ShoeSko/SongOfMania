@@ -90,7 +90,7 @@ public class ObjectBase : MonoBehaviour
 
     private void Update()
     {
-        print(TutorialManager.s_tutorialStage);
+        //print(TutorialManager.s_tutorialStage);
 
         //if (Input.GetKeyDown(KeyCode.K))
         //{
@@ -111,7 +111,7 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     {
-        //Debug.Log("Activated ");
+        //Debug.Log("On Activate");
         //Something Dialogue activation
     }
 
@@ -147,12 +147,12 @@ public class ObjectBase : MonoBehaviour
 
     public virtual void PlayerNearActivate()
     {
-
+        Debug.Log("It runs the Near Function");
         //If not ClickedObject anymore, that means we do not want to activate it.
         if (s_objectInstance.clickedObject && s_objectInstance==this)
         {
             activate = true;
-            //print("is active");
+            print("is active " + name);
         }
 
         if (activate)
@@ -164,10 +164,6 @@ public class ObjectBase : MonoBehaviour
                 //print("Looking for player");
                 if (locatePlayer[i].GetComponent<PlayerNavMesh>())
                 {
-                    //Now you can activate either OnActive or OnRecieve
-                    //IF (Static bool for holding item?)
-                    //Else
-                    //No longer activate after use.
                     activate = false;
                     clickedObject = false;
 

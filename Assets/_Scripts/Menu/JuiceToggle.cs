@@ -8,26 +8,44 @@ public class JuiceToggle : MonoBehaviour
 {
     //1 Billboard (First Static, second for button adjustments)
     public static bool s_juiceBillboard = true;
-    public bool juiceBillboard = true;
+    private bool juiceBillboard = true;
     //Dialogue (Speed?)
     //Dialogue (Animations?)
     //4 Movement Animation
     public static bool s_juiceMovementAnime = true;
-    public bool juiceMovementAnim = true;
+    private bool juiceMovementAnim = true;
     //Audio
+
+    //6 Name Display
+    public static bool s_juiceNameDisplay;
+    private bool juiceNameDisplay;
+
+    //7 Spoken Display
+    public static bool s_juiceSpokenDisplay;
+    private bool juiceSpokenDisplay;
 
     //8 Cursor Click location
     public static bool s_juiceClickIndicator = true;
-    public bool juiceClickIndicator = true;
+    private bool juiceClickIndicator = true;
 
 
     [Header("Button setting")]
     [SerializeField] private Button applyButton;
     private bool changesToApply;
+
+
     private void Start()
     {
         //Keep Apply Button off before changes.
         applyButton.interactable = false;
+
+        //Set all tick boxes to corespond to the value their static counterpart has.
+        TickBoxSetup();
+    }
+
+    private void TickBoxSetup()
+    {
+
     }
 
     public void TurnOnOffJuice(int chosenJuice)
@@ -40,6 +58,14 @@ public class JuiceToggle : MonoBehaviour
 
             case 4:
                 juiceMovementAnim = !juiceMovementAnim;
+                break;
+
+            case 6:
+                juiceNameDisplay = !juiceNameDisplay;
+                break;
+
+            case 7:
+                juiceSpokenDisplay = !juiceSpokenDisplay;
                 break;
 
             case 8:
@@ -61,11 +87,15 @@ public class JuiceToggle : MonoBehaviour
 
     public void ResetForJuiceAdjustments(int sceneIndex)
     {
-        s_juiceBillboard = juiceBillboard;
+        s_juiceBillboard = juiceBillboard; //1
 
-        s_juiceMovementAnime = juiceMovementAnim;
+        s_juiceMovementAnime = juiceMovementAnim; //4
 
-        s_juiceClickIndicator = juiceClickIndicator;
+        s_juiceNameDisplay = juiceNameDisplay; //6
+
+        s_juiceSpokenDisplay = juiceSpokenDisplay; //7
+
+        s_juiceClickIndicator = juiceClickIndicator; //8
 
 
         applyButton.interactable = false;
