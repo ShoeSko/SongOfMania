@@ -498,10 +498,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007930460}
     m_Modifications:
-    - target: {fileID: 1203040697291472481, guid: d39a1606cdb72f840926f65a380722fd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4878100597872525640, guid: d39a1606cdb72f840926f65a380722fd, type: 3}
       propertyPath: m_Name
       value: JuiceSettings

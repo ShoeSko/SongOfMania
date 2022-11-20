@@ -62,6 +62,11 @@ public class JuiceToggle : MonoBehaviour
 
     private void TickBockReader()
     {
+        for (int i = 0; i < 9; i++)
+        {
+            toggleState.Add(true);
+        }
+
         toggleState[0] = s_juiceBillboard;
         toggleState[1] = Dialogue.enableTypewriter;
         toggleState[2] = Dialogue.enableAnimation;
@@ -157,6 +162,6 @@ public class JuiceToggle : MonoBehaviour
         applyButton.interactable = false;
 
         //Load scene shift
-        //SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
