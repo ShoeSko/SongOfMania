@@ -37,7 +37,7 @@ public class NameDisplay : MonoBehaviour
     public static void ShowDisplayName_Static(string name)
     {
         //IF there is no Dialogue displaying
-        if (!Dialogue.isDialogue)
+        if (!Dialogue.isDialogue && JuiceToggle.s_juiceNameDisplay)
         {
             //To give better reference
             TextMeshProUGUI nameText = s_nameDisplay.textName;
