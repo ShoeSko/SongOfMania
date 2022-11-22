@@ -20,9 +20,9 @@ public class typeWriterUi : MonoBehaviour
     public void run(string textToType, TMP_Text textLable)
     {
         text = textToType;
-            print("starting");
-            charIndex = 0;
-            StartCoroutine(TypeText(textToType, textLable));
+        print("starting");
+        charIndex = 0;
+        StartCoroutine(TypeText(textToType, textLable));
     }
     private IEnumerator TypeText(string textToType, TMP_Text textLable)
     {
@@ -38,7 +38,22 @@ public class typeWriterUi : MonoBehaviour
             textLable.text = textToType.Substring(0, charIndex);
 
             yield return null;
+
         }
+
+        #region ducttape
+        var dialogueScript = GetComponent<Dialogue>();
+        var dialogueTSVreader = GetComponent<dialogueTSVreader>();
+        if (dialogueTSVreader.myDialogueList.dialogue[dialogueScript.debugReadline].next == 0)
+        {
+            dialogueScript.nextLine = -1;
+        }
+        else
+        {
+            dialogueScript.nextLine = dialogueScript.debugReadline + 1;
+        }
+        #endregion
+
         isGoing = false;
     }
 }

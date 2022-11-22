@@ -95,6 +95,7 @@ public class Inventory_Items : MonoBehaviour
                         barItems[i].GetComponent<Image>().sprite = itemIcons[5];
                         break;
                     default:
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[5];
                         break;
                 }
 

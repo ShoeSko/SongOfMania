@@ -29,6 +29,7 @@ public class Dialogue : MonoBehaviour
     public bool inputEnabeld;
 
     public int nextLine;
+    public int debugReadline;
 
     [Header("jucing bools")]
     public static bool enableAnimation = true;
@@ -74,7 +75,7 @@ public class Dialogue : MonoBehaviour
 
     public void getDialogue(int readLine)
     {
-
+        debugReadline = readLine;
         otherTexture = null;
         if (readLine > -1)
         {
@@ -160,14 +161,14 @@ public class Dialogue : MonoBehaviour
                     GetComponent<typeWriterUi>().charIndex = incomingText.Length;
                     displayText.text = incomingText;
 
-                    if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
-                    {
-                        nextLine = -1;
-                    }
-                    else
-                    {
-                        nextLine = readLine + 1;
-                    }
+                    //if (TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine].next == 0)
+                    //{
+                    //    nextLine = -1;
+                    //}
+                    //else
+                    //{
+                    //    nextLine = readLine + 1;
+                    //}
                 }
                 else
                 {
