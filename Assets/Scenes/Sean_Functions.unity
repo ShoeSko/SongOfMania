@@ -2604,7 +2604,7 @@ PrefabInstance:
     - target: {fileID: 4953419202186944583, guid: 5c1b4b5670501534187bfd84c890eafe, type: 3}
       propertyPath: itemDataSheet
       value: 
-      objectReference: {fileID: 4900000, guid: c15376e12235b0f4d88309fa656f6acf, type: 3}
+      objectReference: {fileID: 4900000, guid: 726eaf989657a7e4eb3dace10b0e3ec7, type: 3}
     - target: {fileID: 4953419202186944583, guid: 5c1b4b5670501534187bfd84c890eafe, type: 3}
       propertyPath: itemIcons.Array.size
       value: 6

@@ -1,0 +1,12 @@
+Shovel head	Shovel head	Its the "Shovel" part of a shovel	I need some leverage. prehaps a stick	someone broke there shovel	Stick	Shovel
+Stick	Stick	Its brown and stick-y	Maby i can combine it with	This whould make a good shovel, but something is missing	Shovel head	Shovel
+Shovel	Shovel	diggy.diggy hole.	I feel like digging holes	Wow! i can cobine items!	Mount	Single use Trhophy
+Pomegranet	Pomegranet	many culture represents the soul with this fruit	Prehaps someone is hungry for this?	The frouit of the underworld	Explainer	NPC interaction Trophy 
+chest key	chest key	I dont think its for my heart	every key has a hole...HA!	The most clasic of puzzle items	Chest	multi use trophy
+multi use trophy	multi use trophy	This can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
+Single use Trhophy	Single use Trhophy	this can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
+NPC interaction Trophy 	NPC interaction Trophy 	this can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
+Chest	Chest					
+Mount	Mount					
+Explainer	Explainer					
+table	Table									

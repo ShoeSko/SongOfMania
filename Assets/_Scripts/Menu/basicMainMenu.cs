@@ -29,4 +29,8 @@ public class basicMainMenu : MonoBehaviour
 
         SceneManager.LoadScene(0);
     }
+    public void testingGrounds()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
