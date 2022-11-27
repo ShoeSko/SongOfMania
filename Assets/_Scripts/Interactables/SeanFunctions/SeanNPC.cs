@@ -42,8 +42,21 @@ public class SeanNPC : ObjectBase
 
     public override void OnRecieve()
     {
+        string itemName = inventoryInstance.selectedItem;
         base.OnRecieve();
 
+        if(npcIDGiven == 1 && itemName == "Pomegranet")
+        {
+
+            inventoryInstance.UseItem("Explainer", false);
+            inventoryInstance.PickUpItem("NPC interaction Trophy ");
+
+            if (!SeanPuzzleComplete.s_seanPuzzleDone)
+            {
+                SeanPuzzleComplete.s_seanPuzzleDone = true;
+                dialogueInstance.dialogueStart(30);
+            }
+        }
     }
 
 }

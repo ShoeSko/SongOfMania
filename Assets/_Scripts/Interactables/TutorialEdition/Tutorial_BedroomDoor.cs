@@ -18,8 +18,8 @@ public class Tutorial_BedroomDoor : ObjectBase
 
     public override void OnActivate()
     {
-        print("Triggered");
-        print(TutorialManager.s_tutorialStage);
+        //print("Triggered");
+        //print(TutorialManager.s_tutorialStage);
         base.OnActivate();
 
         if (!TutorialManager.s_leftBedroom)

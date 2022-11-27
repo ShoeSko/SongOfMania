@@ -166,12 +166,12 @@ public class ObjectBase : MonoBehaviour
         if (s_objectInstance.clickedObject && s_objectInstance==this)
         {
             activate = true;
-            print("is active " + name);
+            //print("is active " + name);
         }
 
         if (activate)
         {
-            print("is active");
+            //print("is active");
             Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
             for (int i = 0; i < locatePlayer.Length; i++)
             {
@@ -236,7 +236,7 @@ public class ObjectBase : MonoBehaviour
     /// <summary>
     /// Displays the name of the current object when hovered over.
     /// </summary>
-    private void DisplayName()
+    public virtual void DisplayName()
     {
         NameDisplay.ShowDisplayName_Static(objectName);
     }
