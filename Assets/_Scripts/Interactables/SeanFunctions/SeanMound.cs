@@ -30,8 +30,15 @@ public class SeanMound : ObjectBase
 
         if(itemName == "Shovel")
         { //Destroy Mound and Give Item
-            inventoryInstance.UseItem("shovel", false);
-            inventoryInstance.PickUpItem("multi use trophy");
+            inventoryInstance.UseItem("Mount", false);
+            inventoryInstance.PickUpItem("Single use Trhophy");
+
+            if (!SeanPuzzleComplete.s_seanPuzzleDone)
+            {
+                SeanPuzzleComplete.s_seanPuzzleDone = true;
+                dialogueInstance.dialogueStart(30);
+            }
+
             Destroy(gameObject);
         }
     }

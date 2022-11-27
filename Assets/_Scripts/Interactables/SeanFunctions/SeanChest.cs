@@ -48,6 +48,13 @@ public class SeanChest : ObjectBase
             {
                 inventoryInstance.UseItem("Chest", false);
                 inventoryInstance.PickUpItem("multi use trophy");
+
+                if (!SeanPuzzleComplete.s_seanPuzzleDone)
+                {
+                    SeanPuzzleComplete.s_seanPuzzleDone = true;
+                    dialogueInstance.dialogueStart(30);
+                }
+
                 Destroy(this);
             }
         }

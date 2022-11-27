@@ -31,8 +31,7 @@ MultiUse3	Speaking of puzzles.	Eurydice	L	no	1	0
 MultiUse4	I locked the trophy in one of those chests, let's see how many you must open to find it.	Eurydice	L	no	0	0
 Explenation1	Upon completing puzzles we can easily call various functions.	Eurydice	L	no	1	0
 Explenation2	Such as dialogue, sound or perhaps give you another item.	Eurydice	L	no	1	0
-Explenation3	Hey, we did all three now.	Eurydice	L	no	1	0
-Explenation4	Now go complete the other two puzzles.	Eurydice	L	no	0	0
+Explenation3	Now go complete the other two puzzles.	Eurydice	L	no	0	0
 Completion1	Your brain is both big and smart!	???	L	no	1	0
 Completion2	We are all very proud of what you have achieved.	???	L	no	1	0
 Completion3	Alas the tutorial is over, and we must part ways.	???	L	no	1	0
