@@ -23,6 +23,10 @@ public class basicMainMenu : MonoBehaviour
         Debug.Log("loading endsceene");
         SceneManager.LoadScene(2);
     }
+    public void exitGame()
+    {
+        Application.Quit();
+    }
     public void mainMenu()
     {
         Debug.Log("loading mainmenu");
