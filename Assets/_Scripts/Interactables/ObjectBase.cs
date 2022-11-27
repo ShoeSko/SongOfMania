@@ -285,6 +285,9 @@ public class ObjectBase : MonoBehaviour
     private void OnDestroy()
     {
         //Hide the Name displayed when no longer existing.
-        NameDisplay.HideDisplayName_Static();
+        if (NameDisplay.s_nameDisplays)
+        {
+            NameDisplay.HideDisplayName_Static();
+        }
     }
 }

@@ -229,7 +229,7 @@ public class Inventory_Items : MonoBehaviour
         string[] data = itemDataSheet.text.Split(new string[] { "\t", "\n" }, StringSplitOptions.None);
 
         items = new Dictionary<string, Item>();
-
+        print(data.Length);
         for (int i = 0; i < data.Length; i += 7)
         {
             Item item = new Item(data[i + 1], data[i + 2], data[i + 3], data[i + 4], data[i + 5], data[i + 6]);

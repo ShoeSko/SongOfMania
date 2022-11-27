@@ -6,7 +6,3 @@ chest key	chest key	I dont think its for my heart	every key has a hole...HA!	The
 multi use trophy	multi use trophy	This can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
 Single use Trhophy	Single use Trhophy	this can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
 NPC interaction Trophy 	NPC interaction Trophy 	this can be placed on the trophy stand	thats not the trophy stand	Congratulation!	table	
-Chest	Chest					
-Mount	Mount					
-Explainer	Explainer					
-table	Table									

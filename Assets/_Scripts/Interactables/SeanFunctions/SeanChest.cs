@@ -8,26 +8,49 @@ public class SeanChest : ObjectBase
     [SerializeField] private MeshRenderer[] materialsToChange;
     [SerializeField] private Material originalChestMaterial;
 
+    public static int chestOpened;
+
     private void Awake()
     {
         //Confirm I am Item
         isInteractable = true;
+
+        chestOpened = 0;
     }
 
 
     public override void OnActivate()
     {
         base.OnActivate();
+        SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[0].inspectPromt);
     }
 
     public override void OnInspect()
     {
         base.OnInspect();
+        SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[0].inspectPromt);
     }
 
     public override void OnRecieve()
     {
+        string itemName = inventoryInstance.selectedItem;
         base.OnRecieve();
+
+        if(itemName == "chest key")
+        {
+            if(chestOpened != 2)
+            {
+                SpokenDisplay.ShowDisplaySpoken_Static("Nothing to find in this one...");
+                chestOpened++;
+                Destroy(this);
+            }
+            else if(chestOpened >= 2)
+            {
+                inventoryInstance.UseItem("Chest", false);
+                inventoryInstance.PickUpItem("multi use trophy");
+                Destroy(this);
+            }
+        }
     }
 
     public override void HighlightInteractable()

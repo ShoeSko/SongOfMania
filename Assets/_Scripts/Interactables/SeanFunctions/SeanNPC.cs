@@ -17,15 +17,15 @@ public class SeanNPC : ObjectBase
         switch (npcIDGiven)
         {
             case 0:
-                dialogueInstance.dialogueStart(11);
+                dialogueInstance.dialogueStart(10);
                 break;
 
             case 1:
-                dialogueInstance.dialogueStart(20);
+                dialogueInstance.dialogueStart(18);
                 break;
 
             case 2:
-                dialogueInstance.dialogueStart(27);
+                dialogueInstance.dialogueStart(26);
                 break;
 
             default:

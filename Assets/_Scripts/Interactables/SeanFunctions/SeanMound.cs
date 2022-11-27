@@ -14,12 +14,13 @@ public class SeanMound : ObjectBase
     public override void OnActivate()
     {
         base.OnActivate();
+        SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[1].inspectPromt);
     }
 
     public override void OnInspect()
     {
         base.OnInspect();
-
+        SpokenDisplay.ShowDisplaySpoken_Static(interactableInstace.myInteractableList.interactable[1].inspectPromt);
     }
 
     public override void OnRecieve()
@@ -29,6 +30,7 @@ public class SeanMound : ObjectBase
 
         if(itemName == "Shovel")
         { //Destroy Mound and Give Item
+            inventoryInstance.UseItem("shovel", false);
             inventoryInstance.PickUpItem("multi use trophy");
             Destroy(gameObject);
         }

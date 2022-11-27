@@ -11,6 +11,8 @@ public class NameDisplay : MonoBehaviour
 
     [Range(0, 100)][SerializeField] private float displayPaddingX;
     [Range(45, 100)][SerializeField] private float displayPaddingY;
+
+    public static bool s_nameDisplays;
     private void Awake()
     {
         //Turn off both gameobjects.
@@ -51,6 +53,8 @@ public class NameDisplay : MonoBehaviour
             float textPaddingSize = 4f;
             Vector2 backgroundSize = new Vector2(nameText.preferredWidth + textPaddingSize *2f, nameText.preferredHeight + textPaddingSize *2f);
             backgroundText.sizeDelta = backgroundSize;
+
+            s_nameDisplays = true;
         }
         else
         {
@@ -67,5 +71,6 @@ public class NameDisplay : MonoBehaviour
     {
         s_nameDisplay.textName.gameObject.SetActive(false);
         s_nameDisplay.textBackground.gameObject.SetActive(false);
+        s_nameDisplays = false;
     }
 }

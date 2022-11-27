@@ -571,9 +571,9 @@ GameObject:
   - component: {fileID: 100746500}
   - component: {fileID: 100746499}
   - component: {fileID: 100746498}
-  - component: {fileID: 100746501}
   - component: {fileID: 100746502}
   - component: {fileID: 100746503}
+  - component: {fileID: 100746504}
   m_Layer: 0
   m_Name: Pomegranet
   m_TagString: Untagged
@@ -662,27 +662,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &100746501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100746496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed6cf998e3612f45a287bdfef866593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 3
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 100746500}
-  - {fileID: 323297724}
-  originalPomegranateMaterial: {fileID: 2100000, guid: c9858cd3596af084da2e15f303ca0c09, type: 2}
 --- !u!82 &100746502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -792,6 +771,27 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0.7170801, y: 1.1603166, z: -0.9435625}
+--- !u!114 &100746504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100746496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed6cf998e3612f45a287bdfef866593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 3
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 100746500}
+  - {fileID: 323297724}
+  originalPomegranateMaterial: {fileID: 2100000, guid: c9858cd3596af084da2e15f303ca0c09, type: 2}
 --- !u!1 &139522628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953419203086257245, guid: 5c1b4b5670501534187bfd84c890eafe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4953419203086257246, guid: 5c1b4b5670501534187bfd84c890eafe, type: 3}
       propertyPath: m_Pivot.x
@@ -2751,9 +2751,9 @@ GameObject:
   - component: {fileID: 502999516}
   - component: {fileID: 502999515}
   - component: {fileID: 502999514}
-  - component: {fileID: 502999517}
   - component: {fileID: 502999518}
   - component: {fileID: 502999519}
+  - component: {fileID: 502999520}
   m_Layer: 0
   m_Name: Chest (2)
   m_TagString: Untagged
@@ -2844,27 +2844,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &502999517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502999512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 502999516}
-  - {fileID: 1774983025}
-  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!82 &502999518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2972,8 +2951,29 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 2.35, z: 1.8}
+  m_Size: {x: 2.4, y: 2.35, z: 2.11}
   m_Center: {x: 1.1615996, y: 0.54923964, z: -0.82265854}
+--- !u!114 &502999520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502999512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 502999516}
+  - {fileID: 1774983025}
+  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!1 &593981725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,9 +2986,9 @@ GameObject:
   - component: {fileID: 593981729}
   - component: {fileID: 593981728}
   - component: {fileID: 593981727}
-  - component: {fileID: 593981730}
   - component: {fileID: 593981731}
   - component: {fileID: 593981732}
+  - component: {fileID: 593981733}
   m_Layer: 0
   m_Name: Chest (1)
   m_TagString: Untagged
@@ -3079,27 +3079,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &593981730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593981725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 593981729}
-  - {fileID: 1844036643}
-  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!82 &593981731
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3207,8 +3186,29 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 2.35, z: 1.8}
+  m_Size: {x: 2.4, y: 2.35, z: 2.11}
   m_Center: {x: 1.1615996, y: 0.54923964, z: -0.82265854}
+--- !u!114 &593981733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593981725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 593981729}
+  - {fileID: 1844036643}
+  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!43 &628019899
 Mesh:
   m_ObjectHideFlags: 0
@@ -4862,8 +4862,8 @@ GameObject:
   - component: {fileID: 1032227303}
   - component: {fileID: 1032227302}
   - component: {fileID: 1032227301}
-  - component: {fileID: 1032227304}
   - component: {fileID: 1032227305}
+  - component: {fileID: 1032227306}
   m_Layer: 0
   m_Name: mount
   m_TagString: Untagged
@@ -4951,23 +4951,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1032227304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032227299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74d9fd1a967d264e87bcde4fc6c8084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 1
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
 --- !u!82 &1032227305
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5064,6 +5047,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1032227306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032227299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74d9fd1a967d264e87bcde4fc6c8084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 1
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
 --- !u!1 &1094900336
 GameObject:
   m_ObjectHideFlags: 0
@@ -5950,27 +5950,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1250248190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234281049900220101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5eaf011f927e414ea77a10082755082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 1
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 9088686230679710669}
-  - {fileID: 5911918472567572138}
-  originalStickMaterial: {fileID: 2100000, guid: b467a80a3206b1f4693d3cb3b6011d8c, type: 2}
 --- !u!1 &1276875552
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,7 +7363,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6513546455950698849, guid: 3755ad56896c8b04a8abd59622a827a7, type: 3}
   m_PrefabInstance: {fileID: 1577763817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1577763820
+--- !u!114 &1577763825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7445,9 +7424,9 @@ GameObject:
   - component: {fileID: 1605239858}
   - component: {fileID: 1605239857}
   - component: {fileID: 1605239856}
-  - component: {fileID: 1605239859}
   - component: {fileID: 1605239860}
   - component: {fileID: 1605239861}
+  - component: {fileID: 1605239862}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -7538,27 +7517,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1605239859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605239854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 1605239858}
-  - {fileID: 2086577761}
-  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!82 &1605239860
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7666,8 +7624,29 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 2.35, z: 1.8}
+  m_Size: {x: 2.4, y: 2.35, z: 2.11}
   m_Center: {x: 1.1615996, y: 0.54923964, z: -0.82265854}
+--- !u!114 &1605239862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605239854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a9b69dba3b1474bae6ac0b2c596faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 1605239858}
+  - {fileID: 2086577761}
+  originalChestMaterial: {fileID: 2100000, guid: e0d812c877abceb4cb036a90bca2cc64, type: 2}
 --- !u!224 &1623355861 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4953419203086257246, guid: 5c1b4b5670501534187bfd84c890eafe, type: 3}
@@ -8727,9 +8706,9 @@ GameObject:
   - component: {fileID: 1885088097}
   - component: {fileID: 1885088096}
   - component: {fileID: 1885088095}
-  - component: {fileID: 1885088098}
   - component: {fileID: 1885088099}
   - component: {fileID: 1885088100}
+  - component: {fileID: 1885088101}
   m_Layer: 0
   m_Name: Shovel head
   m_TagString: Untagged
@@ -8817,23 +8796,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1885088098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885088093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aed296c9a639a74bbbac32f23fb7990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
 --- !u!82 &1885088099
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8943,6 +8905,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6534747
   m_Center: {x: 0.580925, y: 0.6534747, z: -0.557986}
+--- !u!114 &1885088101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885088093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed296c9a639a74bbbac32f23fb7990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
 --- !u!1 &1890950653
 GameObject:
   m_ObjectHideFlags: 0
@@ -10453,8 +10432,8 @@ GameObject:
   - component: {fileID: 4894364930381475703}
   - component: {fileID: 5486955926835155122}
   - component: {fileID: 1450846709317234795}
-  - component: {fileID: 6146207513374148093}
   - component: {fileID: 6146207513374148094}
+  - component: {fileID: 6146207513374148095}
   m_Layer: 0
   m_Name: chest key
   m_TagString: Untagged
@@ -10462,29 +10441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6146207513374148093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6146207513374148092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85c93479e596e04d8f7d97a5b6748c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 4
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 5486955926835155122}
-  - {fileID: 4689503615900650308}
-  - {fileID: 5547816194167737841}
-  - {fileID: 4426133988774003068}
-  originalKeyMaterial: {fileID: 2100000, guid: 2c47c88d7fcbf4ce3aa8da9f42f86898, type: 2}
 --- !u!82 &6146207513374148094
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10581,6 +10537,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6146207513374148095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146207513374148092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85c93479e596e04d8f7d97a5b6748c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 4
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 5486955926835155122}
+  - {fileID: 4689503615900650308}
+  - {fileID: 5547816194167737841}
+  - {fileID: 4426133988774003068}
+  originalKeyMaterial: {fileID: 2100000, guid: 2c47c88d7fcbf4ce3aa8da9f42f86898, type: 2}
 --- !u!65 &6183265628615829187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10636,9 +10615,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8898907157486118095}
-  - component: {fileID: 1250248190}
   - component: {fileID: 8898907157486118096}
   - component: {fileID: 8898907157486118097}
+  - component: {fileID: 8898907157486118098}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Untagged
@@ -10837,6 +10816,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8898907157486118098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234281049900220101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eaf011f927e414ea77a10082755082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 1
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 9088686230679710669}
+  - {fileID: 5911918472567572138}
+  originalStickMaterial: {fileID: 2100000, guid: b467a80a3206b1f4693d3cb3b6011d8c, type: 2}
 --- !u!23 &9088686230679710669
 MeshRenderer:
   m_ObjectHideFlags: 0
