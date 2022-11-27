@@ -21,4 +21,16 @@ public class SeanMound : ObjectBase
         base.OnInspect();
 
     }
+
+    public override void OnRecieve()
+    {
+        string itemName = inventoryInstance.selectedItem;
+        base.OnRecieve();
+
+        if(itemName == "Shovel")
+        { //Destroy Mound and Give Item
+            inventoryInstance.PickUpItem("multi use trophy");
+            Destroy(gameObject);
+        }
+    }
 }
