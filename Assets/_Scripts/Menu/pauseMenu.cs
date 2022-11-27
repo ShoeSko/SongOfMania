@@ -5,14 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
-    static bool isPaused = false;
+    public GameObject aChild;
+    public GameObject aSecondChild;
+    
+    public static bool s_IsPaused = false;
+
+    public bool debugbool = false;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
     public void Pause()
     {
-        isPaused = true;
+        aChild.SetActive(true);
+        aSecondChild.SetActive(true);
+        s_IsPaused = true;
+        debugbool = true;
     }
     public void unPause()
     {
-        isPaused = false;
+        s_IsPaused = false;
+        debugbool = false;
     }
     public void mainMenu()
     {

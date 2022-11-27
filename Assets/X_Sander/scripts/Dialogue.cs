@@ -67,7 +67,7 @@ public class Dialogue : MonoBehaviour
             }
 
         }
-        if (Input.GetMouseButtonDown(0) && isDialogue && inputEnabeld)
+        if (Input.GetMouseButtonDown(0) && isDialogue && inputEnabeld && !pauseMenu.s_IsPaused)
         {
             getDialogue(nextLine);
         }

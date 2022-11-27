@@ -15,7 +15,6 @@ public class audioLibrary : MonoBehaviour
     public void playAduio(string who, int emotion)
     {
         AudioClip clip;
-        print(who + emotion);
 
         if (who == "???" || who == "Orpheus")
         {
@@ -25,7 +24,7 @@ public class audioLibrary : MonoBehaviour
         {
             wanjangle = 0;
         }
-
+        audioSource.Stop();
         switch (emotion)
         {
             case 1:
