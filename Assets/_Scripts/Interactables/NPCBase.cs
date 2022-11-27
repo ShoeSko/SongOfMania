@@ -32,6 +32,7 @@ public class NPCBase : ObjectBase
 
         if (row == 2 && itemName == "lyre")
         {
+            audioSourceInstance.PlayOneShot(audioClip);
             inventoryInstance.UseItem("orpheus", false);
             //This one dialogue bit needs fixing later.
             dialogueInstance.dialogueStart(38);

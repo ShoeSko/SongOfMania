@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 //It is a must that an interactable has a collider
-[RequireComponent(typeof(Collider), typeof(AudioSource))]
+[RequireComponent(typeof(Collider))]
 public class ObjectBase : MonoBehaviour
 {
     [Header("SpreadSheet")]
@@ -20,7 +20,8 @@ public class ObjectBase : MonoBehaviour
     public itemCSVreader itemInstance { get; protected set; }
     public interactableCSVreader interactableInstace { get; protected set; }
     public Inventory_Items inventoryInstance { get; protected set; }
-    public AudioSource audioSource { get; protected set; }
+    public AudioSource audioSourceInstance { get; protected set; }
+    public AudioClip audioClip;
 
     [Header("Hidden Variables")]
     private Material originalMaterial;
@@ -41,7 +42,7 @@ public class ObjectBase : MonoBehaviour
         s_objectInstance = this;
 
         //Grab Audio source and give it the correct Mixers SFX
-        SetUpAudioSource();
+        //SetUpAudioSource();
 
         if (!isNPC)
         {
@@ -65,20 +66,20 @@ public class ObjectBase : MonoBehaviour
         itemInstance = FindObjectOfType<itemCSVreader>();
         interactableInstace = FindObjectOfType<interactableCSVreader>();
         inventoryInstance = FindObjectOfType<Inventory_Items>();
-
+        audioSourceInstance = GameObject.Find("SFXAudio").gameObject.GetComponent<AudioSource>();
 
         StartCoroutine(WaitForInformation());
     }
 
     private void SetUpAudioSource()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSourceInstance = GetComponent<AudioSource>();
 
         AudioMixer audioMixer = Resources.Load("Master", typeof(AudioMixer)) as AudioMixer;
 
         AudioMixerGroup[] audioMixerGroup = audioMixer.FindMatchingGroups("Master");
 
-        audioSource.outputAudioMixerGroup = audioMixerGroup[2];
+        audioSourceInstance.outputAudioMixerGroup = audioMixerGroup[2];
     }
 
     IEnumerator WaitForInformation()
@@ -98,8 +99,6 @@ public class ObjectBase : MonoBehaviour
             objectName = interactableInstace.myInteractableList.interactable[row].name;
         }
         //Find the dialogue script int scene (Should only be 1 per lvl)
-
-
     }
 
     private void Update()
@@ -125,7 +124,6 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     {
-        //Debug.Log("On Activate");
         //Something Dialogue activation
     }
 
@@ -153,17 +151,19 @@ public class ObjectBase : MonoBehaviour
     private void ApproachOnClick()
     {
         clickedObject = true;
+        //Debug.Log("Clicked on, ApproachOnClick + current objectInstance = " + s_objectInstance);
         if (s_objectInstance != this)
         {
             s_objectInstance = this;
+            //Debug.Log("This is object instance " + s_objectInstance);
         }
     }
 
     public virtual void PlayerNearActivate()
     {
-        //Debug.Log("It runs the Near Function");
+        Debug.Log(clickedObject);
         //If not ClickedObject anymore, that means we do not want to activate it.
-        if (s_objectInstance.clickedObject && s_objectInstance==this)
+        if (clickedObject && s_objectInstance==this)
         {
             activate = true;
             //print("is active " + name);
@@ -171,13 +171,15 @@ public class ObjectBase : MonoBehaviour
 
         if (activate)
         {
-            //print("is active");
+            //print("Seeking Active");
             Collider[] locatePlayer = Physics.OverlapSphere(interactLocation.position, interactionRange);
             for (int i = 0; i < locatePlayer.Length; i++)
             {
+                //Debug.Log("Collider search");
                 //print("Looking for player");
                 if (locatePlayer[i].GetComponent<PlayerNavMesh>())
                 {
+                    //Debug.Log("Player Found");
                     activate = false;
                     clickedObject = false;
 
@@ -215,21 +217,24 @@ public class ObjectBase : MonoBehaviour
     /// </summary>
     public virtual void HighlightInteractable()
     {
-        //Trigger Highlight
-        if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
+        if (!JuiceToggle.s_juiceHighlight)
         {
-            //Get reference to Highlight material that is in asset folder called Resources
-            Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
+            //Trigger Highlight
+            if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
+            {
+                //Get reference to Highlight material that is in asset folder called Resources
+                Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
 
-            //Get Refernece to Object Meshrender & set material to highlightMaterial
-            MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
-            interactMesh.material = highlightMaterial;
-        }
-        else if (!isNPC)
-        {
-            //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
-            MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
-            interactMesh.material = originalMaterial;
+                //Get Refernece to Object Meshrender & set material to highlightMaterial
+                MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
+                interactMesh.material = highlightMaterial;
+            }
+            else if (!isNPC)
+            {
+                //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
+                MeshRenderer interactMesh = gameObject.GetComponent<MeshRenderer>();
+                interactMesh.material = originalMaterial;
+            }
         }
     }
 

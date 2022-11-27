@@ -10,12 +10,12 @@ public class InventoryCursorNotice : MonoBehaviour
     public void CursorOverInventory()
     {
         s_hoveringOverInventory = true;
-        Debug.Log("Over Inventory");
+        //Debug.Log("Over Inventory");
     }
     public void CursorLeftInventory()
     {
         s_hoveringOverInventory = false;
-        Debug.Log("Left Inventory");
+        //Debug.Log("Left Inventory");
     }
     #endregion
 }

@@ -130,6 +130,7 @@ public class Tutorial_BedroomDoor : ObjectBase
         {
             inventoryInstance.UseItem("door_bedroom", false);
             StartCoroutine(UnlockingDoor());
+            audioSourceInstance.PlayOneShot(audioClip);
             TeleportPlayer(); //If Door + is Teleporter, Send player to location.
         }
     }

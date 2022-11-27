@@ -34,7 +34,7 @@ public class PlayerNavMesh : MonoBehaviour
     private void Update()
     {
         //You may move if 1, not running Dialogue & Not hovering over Inventory
-        if (!Dialogue.isDialogue && !InventoryCursorNotice.s_hoveringOverInventory)
+        if (!Dialogue.isDialogue && !InventoryCursorNotice.s_hoveringOverInventory && !pauseMenu.s_IsPaused)
         {
             PlayerClick();
         }
@@ -58,7 +58,7 @@ public class PlayerNavMesh : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && ObjectBase.s_objectInstance.clickedObject)
         {
             //Allow movement elsewhere, but has set movement to wanted locaiton
-            ObjectBase.s_objectInstance.clickedObject = false;
+            //ObjectBase.s_objectInstance.clickedObject = false;
             if (JuiceToggle.s_juiceClickIndicator)
             {
                 CursorClickIndicator(ObjectBase.s_objectInstance.interactLocation.position);

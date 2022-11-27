@@ -37,6 +37,7 @@ public class Tutorial_Stool : ObjectBase
                 case 4: //Pick Up Chair
                     if (row == 0)
                     {
+                        audioSourceInstance.PlayOneShot(audioClip);
                         inventoryInstance.PickUpItem(name);
                         ++TutorialManager.s_tutorialStage;
                         Destroy(gameObject);

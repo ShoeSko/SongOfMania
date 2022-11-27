@@ -29,7 +29,7 @@ public class SeanNPC : ObjectBase
                 break;
 
             default:
-                Debug.Log("Who the fuck am I?");
+                //Debug.Log("Who the fuck am I?");
                 break;
         }
     }

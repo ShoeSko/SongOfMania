@@ -21,6 +21,7 @@ public class Tutorial_Rake : ObjectBase
         //Pickup Rake
         if (row == 3)
         {
+            audioSourceInstance.PlayOneShot(audioClip);
             inventoryInstance.PickUpItem(name);
             Destroy(gameObject.transform.parent.gameObject);
         }
@@ -38,23 +39,26 @@ public class Tutorial_Rake : ObjectBase
 
     public override void HighlightInteractable()
     {
-        //Trigger Highlight
-        if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
+        if (!JuiceToggle.s_juiceHighlight)
         {
-            //Get reference to Highlight material that is in asset folder called Resource0s
-            Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
-            for (int i = 0; i <  materialsToChange.Length; i++)
+            //Trigger Highlight
+            if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
             {
-                //Get Refernece to Object Meshrender & set material to highlightMaterial
-                materialsToChange[i].material = highlightMaterial;
+                //Get reference to Highlight material that is in asset folder called Resource0s
+                Material highlightMaterial = Resources.Load("Highlight_Material", typeof(Material)) as Material;
+                for (int i = 0; i <  materialsToChange.Length; i++)
+                {
+                    //Get Refernece to Object Meshrender & set material to highlightMaterial
+                    materialsToChange[i].material = highlightMaterial;
+                }
             }
-        }
-        else if (!isNPC)
-        {
-            for (int i = 0; i < materialsToChange.Length; i++)
+            else if (!isNPC)
             {
-                //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
-                materialsToChange[i].material = originalRakeMaterial;
+                for (int i = 0; i < materialsToChange.Length; i++)
+                {
+                    //Get Reference to Object Meshrender & set material to originalMaterial (Stored in start)
+                    materialsToChange[i].material = originalRakeMaterial;
+                }
             }
         }
     }
