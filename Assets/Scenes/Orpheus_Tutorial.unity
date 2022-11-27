@@ -6901,23 +6901,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4133556709840642, guid: c679fdfaafa978d449645e87cdf371f7, type: 3}
   m_PrefabInstance: {fileID: 904009867}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &904009874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266483436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09e12d3536ec5d4a9b5047665bced28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
 --- !u!82 &904009875
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6928,7 +6911,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 43d5cd27241ce1b4f80c48fb5a9ce795, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7014,6 +6997,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &904009880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266483436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09e12d3536ec5d4a9b5047665bced28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
 --- !u!1001 &910090222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9114,8 +9114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1179416099}
   - component: {fileID: 1179416101}
-  - component: {fileID: 1179416102}
   - component: {fileID: 1179416103}
+  - component: {fileID: 1179416104}
   m_Layer: 0
   m_Name: Pile_of_Mess
   m_TagString: Untagged
@@ -9222,95 +9222,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.3
   m_Center: {x: 20.62, y: 21.74, z: -1}
---- !u!114 &1179416102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179416098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bbb3a06d44dda4bb874aab7978724c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 3
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 1474674917}
-  - {fileID: 1888640841}
-  - {fileID: 2111914272}
-  - {fileID: 637179058}
-  - {fileID: 1572153607}
-  - {fileID: 1978552389}
-  - {fileID: 1679264389}
-  - {fileID: 1913946475}
-  - {fileID: 1385255433}
-  - {fileID: 870662232}
-  - {fileID: 927181136}
-  - {fileID: 715408624}
-  - {fileID: 1711820037}
-  - {fileID: 345266822}
-  - {fileID: 1424568952}
-  - {fileID: 349347630}
-  - {fileID: 1538603881}
-  - {fileID: 1745278278}
-  - {fileID: 1529945853}
-  - {fileID: 1961216724}
-  - {fileID: 1819939451}
-  - {fileID: 2042720764}
-  - {fileID: 309834131}
-  - {fileID: 971796040}
-  - {fileID: 1283403922}
-  - {fileID: 1434480372}
-  - {fileID: 1747700888}
-  - {fileID: 1798217314}
-  - {fileID: 821371506}
-  - {fileID: 2128116186}
-  - {fileID: 1411405455}
-  - {fileID: 1290293075}
-  - {fileID: 1432071046}
-  - {fileID: 2122701692}
-  - {fileID: 1884767200}
-  - {fileID: 1679904603}
-  - {fileID: 1666627267}
-  - {fileID: 1359739637}
-  - {fileID: 903647904}
-  - {fileID: 1906265949}
-  - {fileID: 1095189244}
-  - {fileID: 421504414}
-  - {fileID: 1461875877}
-  - {fileID: 1745248564}
-  - {fileID: 2003168418}
-  - {fileID: 1853100262}
-  - {fileID: 1900157620}
-  - {fileID: 1790333199}
-  - {fileID: 1727326432}
-  - {fileID: 1943628521}
-  - {fileID: 1309233451}
-  - {fileID: 1463283025}
-  - {fileID: 1699234585}
-  - {fileID: 1762676934}
-  - {fileID: 1525826693}
-  - {fileID: 1051824031}
-  - {fileID: 130118310}
-  - {fileID: 1903383649}
-  - {fileID: 401068455}
-  - {fileID: 1764363384}
-  - {fileID: 2124487084}
-  - {fileID: 1750269193}
-  - {fileID: 768496021}
-  - {fileID: 1881990687}
-  - {fileID: 1874551678}
-  - {fileID: 979587605}
-  - {fileID: 1425548626}
-  - {fileID: 1406279469}
-  - {fileID: 2060843802}
-  - {fileID: 2008234182}
-  originalPileGarbageMaterial: {fileID: 2100000, guid: 66a8a6e30880caa48908020cf5388217, type: 2}
 --- !u!82 &1179416103
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9407,6 +9318,95 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1179416104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179416098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bbb3a06d44dda4bb874aab7978724c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 3
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 1474674917}
+  - {fileID: 1888640841}
+  - {fileID: 2111914272}
+  - {fileID: 637179058}
+  - {fileID: 1572153607}
+  - {fileID: 1978552389}
+  - {fileID: 1679264389}
+  - {fileID: 1913946475}
+  - {fileID: 1385255433}
+  - {fileID: 870662232}
+  - {fileID: 927181136}
+  - {fileID: 715408624}
+  - {fileID: 1711820037}
+  - {fileID: 345266822}
+  - {fileID: 1424568952}
+  - {fileID: 349347630}
+  - {fileID: 1538603881}
+  - {fileID: 1745278278}
+  - {fileID: 1529945853}
+  - {fileID: 1961216724}
+  - {fileID: 1819939451}
+  - {fileID: 2042720764}
+  - {fileID: 309834131}
+  - {fileID: 971796040}
+  - {fileID: 1283403922}
+  - {fileID: 1434480372}
+  - {fileID: 1747700888}
+  - {fileID: 1798217314}
+  - {fileID: 821371506}
+  - {fileID: 2128116186}
+  - {fileID: 1411405455}
+  - {fileID: 1290293075}
+  - {fileID: 1432071046}
+  - {fileID: 2122701692}
+  - {fileID: 1884767200}
+  - {fileID: 1679904603}
+  - {fileID: 1666627267}
+  - {fileID: 1359739637}
+  - {fileID: 903647904}
+  - {fileID: 1906265949}
+  - {fileID: 1095189244}
+  - {fileID: 421504414}
+  - {fileID: 1461875877}
+  - {fileID: 1745248564}
+  - {fileID: 2003168418}
+  - {fileID: 1853100262}
+  - {fileID: 1900157620}
+  - {fileID: 1790333199}
+  - {fileID: 1727326432}
+  - {fileID: 1943628521}
+  - {fileID: 1309233451}
+  - {fileID: 1463283025}
+  - {fileID: 1699234585}
+  - {fileID: 1762676934}
+  - {fileID: 1525826693}
+  - {fileID: 1051824031}
+  - {fileID: 130118310}
+  - {fileID: 1903383649}
+  - {fileID: 401068455}
+  - {fileID: 1764363384}
+  - {fileID: 2124487084}
+  - {fileID: 1750269193}
+  - {fileID: 768496021}
+  - {fileID: 1881990687}
+  - {fileID: 1874551678}
+  - {fileID: 979587605}
+  - {fileID: 1425548626}
+  - {fileID: 1406279469}
+  - {fileID: 2060843802}
+  - {fileID: 2008234182}
+  originalPileGarbageMaterial: {fileID: 2100000, guid: 66a8a6e30880caa48908020cf5388217, type: 2}
 --- !u!1 &1185089802
 GameObject:
   m_ObjectHideFlags: 0
@@ -9768,8 +9768,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1231181135}
   - component: {fileID: 1231181139}
-  - component: {fileID: 1231181140}
   - component: {fileID: 1231181141}
+  - component: {fileID: 1231181142}
   m_Layer: 0
   m_Name: Key Interactable
   m_TagString: Untagged
@@ -9807,31 +9807,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0.33}
---- !u!114 &1231181140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231181134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f43b6d7f785864091e21618fbc5e58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 1
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  stoolPrefab: {fileID: 1991082771421754, guid: c679fdfaafa978d449645e87cdf371f7, type: 3}
-  stoolPlacement: {fileID: 1438421348}
-  materialsToChange:
-  - {fileID: 2901776687709094388}
-  - {fileID: 2699007943058774530}
-  - {fileID: 2926625842049440951}
-  - {fileID: 6416629687933112378}
-  originalRakeMaterial: {fileID: 2100000, guid: 2c47c88d7fcbf4ce3aa8da9f42f86898, type: 2}
 --- !u!82 &1231181141
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9928,6 +9903,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1231181142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231181134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f43b6d7f785864091e21618fbc5e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 1
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  stoolPrefab: {fileID: 1991082771421754, guid: c679fdfaafa978d449645e87cdf371f7, type: 3}
+  stoolPlacement: {fileID: 1438421348}
+  materialsToChange:
+  - {fileID: 2901776687709094388}
+  - {fileID: 2699007943058774530}
+  - {fileID: 2926625842049440951}
+  - {fileID: 6416629687933112378}
+  originalRakeMaterial: {fileID: 2100000, guid: 2c47c88d7fcbf4ce3aa8da9f42f86898, type: 2}
 --- !u!1001 &1234928758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17504,8 +17504,8 @@ GameObject:
   - component: {fileID: 33182696287720496}
   - component: {fileID: 23153898696292678}
   - component: {fileID: 1433173927}
-  - component: {fileID: 33182696287720497}
   - component: {fileID: 33182696287720498}
+  - component: {fileID: 33182696287720499}
   m_Layer: 0
   m_Name: Bedroom Door
   m_TagString: Untagged
@@ -17685,28 +17685,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951512891240430}
   m_Mesh: {fileID: 4300000, guid: b63c59e2675172349a171facb5f7824d, type: 3}
---- !u!114 &33182696287720497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951512891240430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4d151876a9a8c147a5dd556220c0aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 0
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  isTeleporter: 1
-  changeScene: 0
-  teleportTarget:
-  - {fileID: 1970346541}
-  - {fileID: 1057776636}
 --- !u!82 &33182696287720498
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17803,6 +17781,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &33182696287720499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951512891240430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d151876a9a8c147a5dd556220c0aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 0
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  isTeleporter: 1
+  changeScene: 0
+  teleportTarget:
+  - {fileID: 1970346541}
+  - {fileID: 1057776636}
 --- !u!33 &33182697096471279
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18524,8 +18524,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5692172901028622644}
   - component: {fileID: 5901045612331805504}
-  - component: {fileID: 5901045612331805505}
   - component: {fileID: 5901045612331805506}
+  - component: {fileID: 5901045612331805507}
   m_Layer: 0
   m_Name: rake
   m_TagString: Untagged
@@ -18547,29 +18547,6 @@ CapsuleCollider:
   m_Height: 3.22
   m_Direction: 1
   m_Center: {x: -0.12, y: 0.41, z: 0.2}
---- !u!114 &5901045612331805505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901045612331805502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52293bed6c88bac4bb59d303d7ad74a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheet: 0
-  row: 3
-  interactionRange: 0.5
-  activate: 0
-  clickedObject: 0
-  materialsToChange:
-  - {fileID: 5449516112451190326}
-  - {fileID: 1187172938286860737}
-  - {fileID: 7630580142443984775}
-  - {fileID: 7460977450877162321}
-  originalRakeMaterial: {fileID: 2100000, guid: b467a80a3206b1f4693d3cb3b6011d8c, type: 2}
 --- !u!82 &5901045612331805506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18666,6 +18643,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5901045612331805507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901045612331805502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52293bed6c88bac4bb59d303d7ad74a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheet: 0
+  row: 3
+  interactionRange: 0.5
+  activate: 0
+  clickedObject: 0
+  materialsToChange:
+  - {fileID: 5449516112451190326}
+  - {fileID: 1187172938286860737}
+  - {fileID: 7630580142443984775}
+  - {fileID: 7460977450877162321}
+  originalRakeMaterial: {fileID: 2100000, guid: b467a80a3206b1f4693d3cb3b6011d8c, type: 2}
 --- !u!33 &6161797798002176519
 MeshFilter:
   m_ObjectHideFlags: 0

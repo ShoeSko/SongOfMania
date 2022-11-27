@@ -50,5 +50,6 @@ public class itemCSVreader : MonoBehaviour
             
 
         }
+        print(myItemList.item[1].name);
     }
 }

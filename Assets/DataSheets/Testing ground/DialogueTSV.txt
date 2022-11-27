@@ -8,7 +8,7 @@ Intro5	Every chapter of song of mania has an overarching goal	Eurydice	L	no	1	0
 Intro6	This goal might change, but it's THE THING the player	Eurydice	L	no	1	0
 Intro7	That's you	Eurydice	L	no	1	0
 Intro8	Are aiming to complete.	Eurydice	L	no	1	0
-Intro9	In this testing area you are to collect 3 trophies and place them on the table next to me.	Eurydice	L	no	−1	0
+Intro9	In this testing area you are to collect 3 trophies and place them on the table next to me.	Eurydice	L	no	0	0
 Combo1	Let me explain how item combinations work.	Eurydice	L	no	1	0
 Combo2	Some items the player can collect are what we call combination items.	Eurydice	L	no	1	0
 Combo3	These items have a “partner” that it's paired with.	Eurydice	L	no	1	0
@@ -16,7 +16,7 @@ Combo4	If one of those two items are used on the other you’ll lose both and re
 Combo5	Try picking up the shovel head, and the stick. Then combine them by clicking one and then 	Eurydice	L	no	1	0
 Combo6	clicking the other. 	Eurydice	L	no	1	0
 Combo7	Then perhaps you can dig up the trophy?	Eurydice	L	no	1	0
-Combo8	I buried it just behind me	Eurydice	L	no	−1	0
+Combo8	I buried it just behind me	Eurydice	L	no	0	0
 NPC's1	We NPCs are interesting	Eurydice	L	no	1	0
 NPC's2	For you se we talk with the player character	Eurydice	L	no	1	0
 NPC's3	“That's very interesting and cool”	Orpheus	R	Eurydice	1	0
@@ -24,17 +24,17 @@ NPC's4	I know right!	Eurydice	L	Orpheus	1	0
 NPC's5	But we also have problems that we cant solve ourselves.	Eurydice	L	Orpheus	1	0
 NPC's6	“And what is your problem?”	Orpheus	R	Eurydice	1	0
 NPC's7	I am very hungry, could you bring me a fruit?	Eurydice	L	Orpheus	1	0
-NPC's8	If you do so I will give you a trophy.	Eurydice	L	Orpheus	−1	0
+NPC's8	If you do so I will give you a trophy.	Eurydice	L	Orpheus	0	0
 MultiUse1	While some items are only used once, others can be used multiple times.	Eurydice	L	no	1	0
 MultiUse2	Very simple really, but it allows some more interesting puzzle design.	Eurydice	L	no	1	0
 MultiUse3	Speaking of puzzles.	Eurydice	L	no	1	0
-MultiUse4	I locked the trophy in one of those chests, let's see how many you must open to find it.	Eurydice	L	no	−1	0
+MultiUse4	I locked the trophy in one of those chests, let's see how many you must open to find it.	Eurydice	L	no	0	0
 Explenation1	Upon completing puzzles we can easily call various functions.	Eurydice	L	no	1	0
 Explenation2	Such as dialogue, sound or perhaps give you another item.	Eurydice	L	no	1	0
 Explenation3	Hey, we did all three now.	Eurydice	L	no	1	0
-Explenation4	Now go complete the other two puzzles.	Eurydice	L	no	−1	0
+Explenation4	Now go complete the other two puzzles.	Eurydice	L	no	0	0
 Completion1	Your brain is both big and smart!	???	L	no	1	0
 Completion2	We are all very proud of what you have achieved.	???	L	no	1	0
 Completion3	Alas the tutorial is over, and we must part ways.	???	L	no	1	0
 Completion4	We hope this has been a understandable and interesting look into our games mechanics	???	L	no	1	0
-Completion5	And feel free to give the game some feedback when we release it for Itch.Io	???	L	no	−1	0
+Completion5	And feel free to give the game some feedback when we release it for Itch.Io	???	L	no	0	0

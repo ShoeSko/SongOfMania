@@ -94,6 +94,26 @@ public class Inventory_Items : MonoBehaviour
                     case "lyre":
                         barItems[i].GetComponent<Image>().sprite = itemIcons[5];
                         break;
+                    #region moreducttape
+                    case "Shovel head":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[0];
+                        break;
+                    case "Stick":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[1];
+                        break;
+                    case "Shovel":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[2];
+                        break;
+                    case "Pomegranet":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[3];
+                        break;
+                    case "chest key":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[4];
+                        break;
+                    case "multi use trophy":
+                        barItems[i].GetComponent<Image>().sprite = itemIcons[5];
+                        break;
+                    #endregion
                     default:
                         barItems[i].GetComponent<Image>().sprite = itemIcons[5];
                         break;

@@ -20,7 +20,6 @@ public class typeWriterUi : MonoBehaviour
     public void run(string textToType, TMP_Text textLable)
     {
         text = textToType;
-        print("starting");
         charIndex = 0;
         StartCoroutine(TypeText(textToType, textLable));
     }
