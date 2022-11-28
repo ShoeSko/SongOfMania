@@ -6,6 +6,7 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    public bool SeansFunctions;
     public Texture characterEurydice;
     public Texture characterOrpheus;
     public Texture characterUnknown;
@@ -88,27 +89,54 @@ public class Dialogue : MonoBehaviour
             }
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
-
-            switch (TSV.who)
+            if (SeansFunctions)
             {
-                case "Orpheus":
-                    whoName = "Orpheus";
-                    who = characterOrpheus;
-                    break;
-                case "Eurydice":
-                    whoName = "Eurydice";
-                    who = characterEurydice;
-                    break;
-                case "???":
-                    whoName = "???";
-                    who = characterUnknown;
-                    break;
-                case "no":
-                    who = null;
-                    break;
-                default:
-                    break;
+                switch (TSV.who)
+                {
+                    case "Orpheus":
+                        whoName = "Sean";
+                        who = characterOrpheus;
+                        break;
+                    case "Eurydice":
+                        whoName = "Sander";
+                        who = characterEurydice;
+                        break;
+                    case "???":
+                        whoName = "GoodQuestion";
+                        who = characterUnknown;
+                        break;
+                    case "no":
+                        who = null;
+                        break;
+                    default:
+                        break;
+                }
             }
+            else
+            {
+                switch (TSV.who)
+                {
+                    case "Orpheus":
+                        whoName = "Orpheus";
+                        who = characterOrpheus;
+                        break;
+                    case "Eurydice":
+                        whoName = "Eurydice";
+                        who = characterEurydice;
+                        break;
+                    case "???":
+                        whoName = "???";
+                        who = characterUnknown;
+                        break;
+                    case "no":
+                        who = null;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+
             switch (TSV.Position)
             {
                 case "L":
