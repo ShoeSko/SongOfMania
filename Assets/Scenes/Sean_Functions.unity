@@ -1462,7 +1462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6701040131606041822, guid: 66cd4c0f2a9b5714ab56d731b3be27b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.84
+      value: 8.54
       objectReference: {fileID: 0}
     - target: {fileID: 6701040131606041822, guid: 66cd4c0f2a9b5714ab56d731b3be27b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8501,7 +8501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1844289536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10654,7 +10654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8898907157486118095}
   - component: {fileID: 8898907157486118096}
-  - component: {fileID: 8898907157486118098}
+  - component: {fileID: 8898907157486118097}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Untagged
@@ -10757,7 +10757,7 @@ CapsuleCollider:
   m_Height: 2.8
   m_Direction: 1
   m_Center: {x: -0.12, y: 0.45, z: 0}
---- !u!114 &8898907157486118098
+--- !u!114 &8898907157486118097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

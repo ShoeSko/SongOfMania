@@ -12,6 +12,12 @@ public class SeanPuzzleComplete : MonoBehaviour
         s_seanPuzzleDone = false;
     }
 
+    private void Start()
+    {
+        Dialogue dialogueInstance = FindObjectOfType<Dialogue>();
+
+        dialogueInstance.dialogueStart(1);
+    }
     private void Update()
     {
         EndTheMisery();
