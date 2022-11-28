@@ -14,9 +14,18 @@ public class SeanPuzzleComplete : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(DialogueDelayStart());
+    }
+
+    IEnumerator DialogueDelayStart()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+
         Dialogue dialogueInstance = FindObjectOfType<Dialogue>();
 
         dialogueInstance.dialogueStart(1);
+
     }
     private void Update()
     {
