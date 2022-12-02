@@ -126,7 +126,7 @@ public class Tutorial_BedroomDoor : ObjectBase
         base.OnRecieve();
         print(itemName + " was given to " + name);
 
-        if (row == 0)
+        if (row == 0 && itemName == "key")
         {
             inventoryInstance.UseItem("door_bedroom", false);
             StartCoroutine(UnlockingDoor());
