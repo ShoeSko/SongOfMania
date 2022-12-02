@@ -13,7 +13,7 @@ public class pauseMenu : MonoBehaviour
     public bool debugbool = false;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !s_IsPaused)
         {
             Pause();
         }
