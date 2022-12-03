@@ -39,8 +39,8 @@ public class Tutorial_Rake : ObjectBase
 
     public override void HighlightInteractable()
     {
-        if (!JuiceToggle.s_juiceHighlight)
-        {
+        //if (!JuiceToggle.s_juiceHighlight)
+        //{
             //Trigger Highlight
             if (Input.GetMouseButton(2) && !isNPC && !Dialogue.isDialogue || Input.GetKey(KeyCode.Space) && !isNPC && !Dialogue.isDialogue)
             {
@@ -60,6 +60,6 @@ public class Tutorial_Rake : ObjectBase
                     materialsToChange[i].material = originalRakeMaterial;
                 }
             }
-        }
+        //}
     }
 }
