@@ -58,16 +58,16 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !inputEnabeld)
-        {
-            dialogueStart(nextLine);
-            if (enableAnimation)
-            {
-                animator.ResetTrigger("EndDialogue");
+        //if (Input.GetKeyDown(KeyCode.RightArrow) && !inputEnabeld)
+        //{
+        //    dialogueStart(nextLine);
+        //    if (enableAnimation)
+        //    {
+        //        animator.ResetTrigger("EndDialogue");
 
-            }
+        //    }
 
-        }
+        //}
         if (Input.GetMouseButtonDown(0) && isDialogue && inputEnabeld && !pauseMenu.s_IsPaused)
         {
             getDialogue(nextLine);
@@ -82,11 +82,7 @@ public class Dialogue : MonoBehaviour
         {
             var TSV = TSVreader.GetComponent<dialogueTSVreader>().myDialogueList.dialogue[readLine];
             string incomingText = TSV.promt;
-            if (JuiceToggle.s_juiceSFX)
-            {
-                GetComponent<audioLibrary>().playAduio(TSV.who, TSV.audioEmotion);
 
-            }
             isDialogue = true;
             dialogueParent.gameObject.SetActive(true);
             if (SeansFunctions)
@@ -135,7 +131,7 @@ public class Dialogue : MonoBehaviour
                         break;
                 }
             }
-            
+
 
             switch (TSV.Position)
             {
@@ -201,6 +197,7 @@ public class Dialogue : MonoBehaviour
                 else
                 {
                     GetComponent<typeWriterUi>().run(incomingText, displayText);
+                    GetComponent<audioLibrary>().playAduio(TSV.who, TSV.audioEmotion);
                 }
             }
 

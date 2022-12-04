@@ -32,15 +32,15 @@ public class Inventory_Items : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(items["lyre"].name);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Debug.Log(items["lyre"].name);
 
-            //foreach (KeyValuePair<string, Item> k in items)
-            //{
-            //    Debug.Log($"{k.Key} - {k.Value.name}\n{k.Value.onInspect}\n{k.Value.onFailedUse}\n{k.Value.onPickup}\n{k.Value.combineWith} - {k.Value.combineResult}\n-----");
-            //}
-        }
+        //    //foreach (KeyValuePair<string, Item> k in items)
+        //    //{
+        //    //    Debug.Log($"{k.Key} - {k.Value.name}\n{k.Value.onInspect}\n{k.Value.onFailedUse}\n{k.Value.onPickup}\n{k.Value.combineWith} - {k.Value.combineResult}\n-----");
+        //    //}
+        //}
     }
 
     public void SelectItem(int itemPos)
@@ -208,6 +208,9 @@ public class Inventory_Items : MonoBehaviour
 
                 PickUpItem(items[selectedItem].combineResult.Trim());
                 UpdateInventory();
+                #region Ducttape Combine audio
+                GetComponent<AudioSource>().Play();
+                #endregion
             }
 
             if (selectedItem == null) return;
@@ -229,7 +232,6 @@ public class Inventory_Items : MonoBehaviour
         string[] data = itemDataSheet.text.Split(new string[] { "\t", "\n" }, StringSplitOptions.None);
 
         items = new Dictionary<string, Item>();
-        print(data.Length);
         for (int i = 0; i < data.Length; i += 7)
         {
             Item item = new Item(data[i + 1], data[i + 2], data[i + 3], data[i + 4], data[i + 5], data[i + 6]);

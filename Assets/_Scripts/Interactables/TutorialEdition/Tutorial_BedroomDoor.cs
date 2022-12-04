@@ -170,7 +170,7 @@ public class Tutorial_BedroomDoor : ObjectBase
     IEnumerator WaitToHaveAChat()
     {
         yield return new WaitForSeconds(0.5f);
-        dialogueInstance.dialogueStart(27);
+        dialogueInstance.dialogueStart(24);
         inventoryInstance.PickUpItem("broken_lyre");
     }
 }

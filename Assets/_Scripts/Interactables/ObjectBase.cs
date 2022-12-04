@@ -161,7 +161,6 @@ public class ObjectBase : MonoBehaviour
 
     public virtual void PlayerNearActivate()
     {
-        Debug.Log(clickedObject);
         //If not ClickedObject anymore, that means we do not want to activate it.
         if (clickedObject && s_objectInstance==this)
         {

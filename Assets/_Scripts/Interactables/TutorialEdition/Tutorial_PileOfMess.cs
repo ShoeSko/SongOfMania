@@ -15,8 +15,7 @@ public class Tutorial_PileOfMess : ObjectBase
 
     public override void OnActivate()
     {
-        print("Triggered");
-        print(TutorialManager.s_tutorialStage);
+
         base.OnActivate();
 
         if (row == 3)
@@ -41,7 +40,7 @@ public class Tutorial_PileOfMess : ObjectBase
     {
         string itemName = inventoryInstance.selectedItem;
         base.OnRecieve();
-        print(itemName + " was given to " + name);
+        
 
         if (row == 3 && itemName == "rake")
         {
