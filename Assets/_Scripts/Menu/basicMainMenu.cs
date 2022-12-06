@@ -5,12 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class basicMainMenu : MonoBehaviour
 {
+    public GameObject aChild;
+    public GameObject aSecondChild;
+    public GameObject logo;
+    private bool onMainMenu;
+    private bool subMenu;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            mainMenu();
+
+            // goes back to main menu or quits
+            if (onMainMenu)
+            {
+                exitGame();
+            }
+            if (subMenu)
+            {
+                GoToMain();
+                aChild.SetActive(true);
+                aSecondChild.SetActive(false);
+                logo.SetActive(true);
+            }
         }
+
+    }
+    public void GoToMain()
+    {
+        subMenu = false;
+        onMainMenu = true;
+    }
+    public void GoToSub()
+    {
+        subMenu = true;
+        onMainMenu = false;
     }
     public void startDemo()
     {
@@ -25,6 +53,7 @@ public class basicMainMenu : MonoBehaviour
     }
     public void exitGame()
     {
+        Debug.Log("exit game");
         Application.Quit();
     }
     public void mainMenu()
